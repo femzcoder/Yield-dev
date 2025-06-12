@@ -8,7 +8,7 @@ export const NavbarButton = ({iconUrl, handleClick}:ButtonProps) =>{
         </button>
     )
 }
-export const WalletButton = ({iconUrl, handleClick}:ButtonProps) =>{
+export const WalletButton = ({handleClick}:ButtonProps) =>{
     return(
         <button className="bg-[#F2F1F1] flex gap-2 items-center  justify-center rounded-full px-2 py-1">Your YTD Income <ChevronDown size={18}/></button>
     )
