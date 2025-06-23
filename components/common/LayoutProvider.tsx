@@ -19,7 +19,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
               <div className="py-6 overflow-y-auto overflow-x-hidden mt-11 relative pb-12 ">
                 {children}
               </div>
-              <TabBar/>
+              {/* <TabBar/> */}
             </div>           
           </div>
   )

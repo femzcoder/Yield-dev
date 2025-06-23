@@ -23,9 +23,10 @@ const sidebarData = [
   { title: "My Tree", link: "my-tree", icon: <TreePine size={18} /> },
   { title: "Almanac", link: "almanac", icon: <Calendar size={18} /> },
   { title: "Billboard", link: "billboard", icon: <Megaphone size={18} /> },
-  { title: "Barn", link: "barn", icon: <Warehouse size={18} /> },
+  { title: "Barn", link: "barns", icon: <Warehouse size={18} /> },
   { title: "Toolshed", link: "toolshed", icon: <Hammer size={18} /> },
   { title: "Market", link: "market", icon: <ShoppingCart size={18} /> },
+  { title: "Field", link: "fields", icon: <ShoppingCart size={18} /> },
   { title: "Bank", link: "bank", icon: <Banknote size={18} /> },
   { title: "Wallet", link: "wallet", icon: <Wallet size={18} /> },
   { title: "Townhall", link: "townhall", icon: <Landmark size={18} /> },
@@ -58,7 +59,7 @@ const sidebarData = [
               href={item.title === "Home" ? `/${currentLang}` : fullPath}
               onClick={toggleSidebar}
               className={`flex items-center gap-2 px-2 py-2 rounded-md text-sm 
-                ${isActive ? "border rounded-xl border-[#C79438] gradient-text" : "text-[#2D2D2D] hover:text-[#C79438]"}`}
+                ${isActive ? "rounded-[2rem] primary-button-background text-white" : "text-[#2D2D2D] hover:text-[#C79438]"}`}
             >
               {item.icon}
               {item.title}
