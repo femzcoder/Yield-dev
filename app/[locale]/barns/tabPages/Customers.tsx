@@ -1,5 +1,6 @@
 import { BasicCard, InsightWarningCard, InteractionCard, ProfileCategoryCard } from '@/components/Cards'
 import { FlexContainer, Grid2Container } from '@/components/Container'
+import { PlanConverstaionModal } from '@/components/conversationPlanner/PlanConversation'
 import { AddProspectButton, PurpleButton } from '@/components/OtherButtons'
 import { LinkText, PurpleText, TextWithIcon } from '@/components/Typo'
 import { Button } from '@/components/ui/button'
@@ -32,8 +33,8 @@ const Customers = () => {
 
         
 
-        <BasicCard style=" border border-[#E7E5E4] w-full lg:w-[60%]">
-          <div className="mb-6 flex items-center justify-between">
+        <BasicCard style=" border border-[#E7E5E4] w-full lg:w-[60%] space-y-4">
+          <FlexContainer>
             <div className="flex items-center gap-2">
                 <Image src="/icons/userIcon.png" alt="Insight Icon" width={24} height={24} className="inline-block mr-2" />
                 <div>
@@ -44,14 +45,9 @@ const Customers = () => {
                     </div>
                 </div>
             </div>
-           <PurpleButton
-              type='button'
-              text="Plan Conversation"
-              handleClick={() => {}}
-              styles="hidden lg:inline"
-            />
+            <PlanConverstaionModal/>
 
-          </div>
+          </FlexContainer>
 
           <div className='bg-[#F2F1F1] rounded-3xl p-2 flex items-center justify-between mb-4'>
             <TextWithIcon text="+91 81658 78656" icon={<Phone size={16} color='#C58B18' />} />

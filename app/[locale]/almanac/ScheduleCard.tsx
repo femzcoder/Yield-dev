@@ -88,7 +88,7 @@ export function ScheduleCard() {
 
 
 
-const gamePlanData = [
+export const gamePlanData = [
     {
         title:'Establish Rapport',
         desc:'Demonstrate that you’ve taken the time to understand who she is based on her profile, this thoughtful approach builds intimacy and trust from the start.'
