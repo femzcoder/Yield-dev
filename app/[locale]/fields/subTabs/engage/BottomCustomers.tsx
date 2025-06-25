@@ -1,6 +1,10 @@
 import { BasicCard } from '@/components/Cards'
 import CustomerItem from '@/components/CustomerItem'
 import { TitleText } from '@/components/Typo'
+import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Separator } from '@/components/ui/separator'
+import { ChevronDown } from 'lucide-react'
 import React from 'react'
 
 const BottomCustomers = () => {
@@ -8,6 +12,42 @@ const BottomCustomers = () => {
     <BasicCard style='space-y-6'>
         <div>
             <TitleText style='text-[18px]' text='Bottom 10 Customers'/>
+            
+            <div className='flex items-center gap-2 mt-2'>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className='rounded-3xl'>Lifetime Value <ChevronDown/></Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem onClick={()=>{}}>
+                      Message
+                    </DropdownMenuItem>
+                    <Separator/>
+                    <DropdownMenuItem>
+                      Call
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className='rounded-3xl'>This Week<ChevronDown/></Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem onClick={()=>{}}>
+                      Message
+                    </DropdownMenuItem>
+                    <Separator/>
+                    <DropdownMenuItem>
+                      Call
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
         </div>
 
         <div className='space-y-3'>
