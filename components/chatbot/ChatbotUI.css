@@ -1,0 +1,25 @@
+@media (max-width: 767.99px) {
+  .chatbot-ui-parent {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+  }
+
+  .chatbot-ui {
+    border: none;
+    border-radius: 0;
+    max-width: 100%;
+    height: 100%; 
+    width: 100%;
+    padding-top: 55px;
+  }
+
+  .chatbot-ui__header,
+  .chatbot-ui__content,
+  .chatbot-ui__footer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
