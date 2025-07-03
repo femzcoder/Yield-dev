@@ -15,7 +15,6 @@ interface SidebarProps {
 const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
   const pathname = usePathname();
   const params = useParams()
-  console.log("Sidebar params:", params);
   const currentLang = params?.locale as string;
 
 const sidebarData = [

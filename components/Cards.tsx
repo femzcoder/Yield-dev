@@ -3,6 +3,7 @@ import Image from "next/image";
 import { BlueText, LinkText, PurpleText, TitleText } from "./Typo";
 import { ChevronRight, OctagonAlert } from "lucide-react";
 import { Separator } from "./ui/separator";
+import { SlideCardProps } from "@/lib/types";
 
 export const BasicCard = ({ children, style }: { children: React.ReactNode, style?: string }) => {
   return (
@@ -12,7 +13,7 @@ export const BasicCard = ({ children, style }: { children: React.ReactNode, styl
   );
 }
 
-export const InsightWarningCard = ({ title, icon, flag, showCTA, isPurple}: { title: string, icon: React.ReactNode, flag?: string, showCTA?:boolean, isPurple?:boolean }) => {
+export const InsightWarningCard = ({ title, icon, flag, showCTA, isPurple, handleDismiss, handleProceed}: { title: string, icon: React.ReactNode, flag?: string, showCTA?:boolean, isPurple?:boolean, handleDismiss?:()=>void, handleProceed?:()=>void }) => {
   return (
     <div className="primary-button-background py-[.8px] px-[1px] shadow-md rounded-[8px]">
       <div className="  p-4 flex items-start gap-4 bg-white rounded-[8px]">
@@ -28,8 +29,8 @@ export const InsightWarningCard = ({ title, icon, flag, showCTA, isPurple}: { ti
           {
             showCTA &&
             <div className="flex items-center gap-3">
-              <button className="bg-[#F2F1F1] text-[12px] border border-[#595657] rounded-4xl py-1 px-3 text-[#2D2D2D]">Dismiss</button>
-              <button className="bg-[#7A003F] text-[12px] border border-[#595657] rounded-4xl py-1 px-3 text-white">Get Briefing</button>
+              <button onClick={handleDismiss} className="bg-[#F2F1F1] text-[12px] border border-[#595657] rounded-4xl py-1 px-3 text-[#2D2D2D]">Dismiss</button>
+              <button onClick={handleProceed} className="bg-[#7A003F] text-[12px] border border-[#595657] rounded-4xl py-1 px-3 text-white">Get Briefing</button>
             </div>            
           }
 
