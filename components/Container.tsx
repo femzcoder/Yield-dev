@@ -1,5 +1,6 @@
 import { ChatModalProps, PrimaryTabContainerProps, TabItem } from "@/lib/types";
 import Image from "next/image";
+import { useChatbot } from "./chatbot/Chatbot";
 import { Label } from "@/components/ui/label"
 import { ArrowLeft, LucideSend, Plus, Send, SendIcon } from "lucide-react"
 // import { ConverstaionPlannerModal } from "./ConversationPlanner"
@@ -86,9 +87,6 @@ export function ChatModal({
   );
 }
 
-
-
-
 export function SendEmailModal({
   open,
   onOpenChange,
@@ -168,11 +166,15 @@ To stay ahead: www.y!elds/dailydigest/.com`);
 
 
 export const AssistantContainer = ({ children }: { children: React.ReactNode }) => {
+  const chatbot = useChatbot();
+
   return (
     <div className="p-2 md:p-4 space-y-6">
       <div className="bg-white pl-2 flex items-center justify-between gap-4">
         <h3 className="font-semibold">Need Assistant?</h3>
-        <div className="flex items-center gap-2 border-2 border-[#722F37] rounded-l-full px-2 py-1">
+        <div className="flex items-center gap-2 border-2 border-[#722F37] rounded-l-full px-2 py-1" onClick={() => {
+          chatbot.toggle();
+        }}>
           <Image src="/icons/userIcon.png" alt="Assistant Icon" width={24} height={24} />
           <div>
             <h3 className="font-semibold text-[#722F37]">Gabriel</h3>

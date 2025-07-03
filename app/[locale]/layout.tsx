@@ -6,6 +6,7 @@ import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import "./globals.css";
 import LayoutProvider from "@/components/common/LayoutProvider";
+import { ChatbotProvider } from "@/components/chatbot/Chatbot";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -45,9 +46,11 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-         <LayoutProvider>
-            {children}
-         </LayoutProvider>
+          <ChatbotProvider>
+            <LayoutProvider>
+              {children}
+            </LayoutProvider>
+          </ChatbotProvider>
         </NextIntlClientProvider>
       </body>
     </html>
