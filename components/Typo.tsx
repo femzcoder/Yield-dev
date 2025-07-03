@@ -7,6 +7,13 @@ export const TitleText = ({text, style}: {text: string, style?: string}) => {
     </h1>
   );
 };
+export const BasicText = ({text, style}: {text: string, style?: string}) => {
+  return (
+    <h1 className={` text-gray-800 dark:text-white ${style}`}>
+      {text}
+    </h1>
+  );
+};
 export const PurpleText = ({text, style}: {text: string, style?: string}) => {
   return (
     <h1 className={` text-[#7A003F] dark:text-white ${style}`}>

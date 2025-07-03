@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react"
 import Image from "next/image"
 import { Button } from "./ui/button"
+import { ButtonProps } from "@/lib/types"
 
 export const NavbarButton = ({iconUrl, handleClick}:ButtonProps) =>{
     return(
