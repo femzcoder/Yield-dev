@@ -1,6 +1,6 @@
 "use client "
 import Image from "next/image";
-import { BlueText, LinkText, PurpleText, TitleText } from "./Typo";
+import { BlueText, PurpleText, TitleText } from "./Typo";
 import { ChevronRight, OctagonAlert } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { SlideCardProps } from "@/lib/types";
@@ -13,7 +13,7 @@ export const BasicCard = ({ children, style }: { children: React.ReactNode, styl
   );
 }
 
-export const InsightWarningCard = ({ title, icon, flag, showCTA, isPurple, handleDismiss, handleProceed}: { title: string, icon: React.ReactNode, flag?: string, showCTA?:boolean, isPurple?:boolean, handleDismiss?:()=>void, handleProceed?:()=>void }) => {
+export const InsightWarningCard = ({ title, flag, showCTA, isPurple, handleDismiss, handleProceed}: { title: string, icon: React.ReactNode, flag?: string, showCTA?:boolean, isPurple?:boolean, handleDismiss?:()=>void, handleProceed?:()=>void }) => {
   return (
     <div className="primary-button-background py-[.8px] px-[1px] shadow-md rounded-[8px]">
       <div className="  p-4 flex items-start gap-4 bg-white rounded-[8px]">

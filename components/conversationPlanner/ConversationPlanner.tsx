@@ -16,7 +16,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { BasicCard } from "../Cards"
 import { TitleText } from "../Typo"
-import { gamePlanData } from "@/app/[locale]/almanac/ScheduleCard"
+import { gamePlanData } from "@/app/[locale]/(dashboard)/almanac/ScheduleCard"
 import { ConverstaionScriptModal } from "./ConversationScript"
 
 export function ConverstaionPlannerModal() {

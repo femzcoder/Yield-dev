@@ -1,3 +1,5 @@
+'use client'
+
 import { ChatModalProps, PrimaryTabContainerProps, TabItem } from "@/lib/types";
 import Image from "next/image";
 import { useChatbot } from "./chatbot/Chatbot";

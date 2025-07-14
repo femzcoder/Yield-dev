@@ -5,7 +5,7 @@ import Sidebar from './Sidebar'
 import Navbar from './Navbar'
 import TabBar from './TabBar'
 
-const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
+const DashboardLayoutProvider = ({ children }: { children: React.ReactNode }) => {
       const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -25,4 +25,4 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-export default LayoutProvider
+export default DashboardLayoutProvider

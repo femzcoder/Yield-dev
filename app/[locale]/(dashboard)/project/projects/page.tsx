@@ -1,22 +1,27 @@
+import { FilterButton, PurpleButton } from '@/components/OtherButtons'
+import { TitleText } from '@/components/Typo'
+import { Plus } from 'lucide-react'
 import React from 'react'
-import { BasicCard, ContactStartCard } from '../Cards'
-import { TitleText } from '../Typo'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Separator } from '@/components/ui/separator'
-import { FilterButton } from '../OtherButtons'
 
-const Contact = () => {
+const Projects = () => {
   return (
-    <BasicCard style='space-y-6'>
-        <div className='flex justify-between items-center'>
-            <TitleText text='Contacts'/>
+    <div>
+        <div>
+            <div>
+                <span>Manage your Project</span>
+                <PurpleButton styles={'gradient-text'} text={'Almanac'}/>
+                <span>3 March 2025</span>
+            </div>
+
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <FilterButton type='button' text='This Month'/>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
                     <DropdownMenuGroup>
-                        <DropdownMenuItem onClick={()=>{(true)}}>
+                        <DropdownMenuItem onClick={()=>{}}>
                             Audio
                         </DropdownMenuItem>
                         <Separator/>
@@ -32,19 +37,20 @@ const Contact = () => {
                         </DropdownMenuItem>
                     </DropdownMenuGroup>
                 </DropdownMenuContent>
-                </DropdownMenu>
+            </DropdownMenu>
         </div>
 
-        <div className='grid grid-cols-2 gap-4'>
-            <ContactStartCard title='Contacts' value={200}/>
-            <ContactStartCard title='Active Purchase' value={5}/>
-            <ContactStartCard title='Active Engagement' value={15}/>
-            <ContactStartCard title='Terminated' value={2}/>
+        <div>
+            <div className='flex justify-between items-center'>
+                <TitleText text='Commercial Insurance'/>
+                <PurpleButton iconUrl={<Plus/>} text={'Add Task'}/>
+            </div>
+            <div>
 
+            </div>
         </div>
- 
-    </BasicCard>
+    </div>
   )
 }
 
-export default Contact
+export default Projects
