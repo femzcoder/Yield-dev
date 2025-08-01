@@ -28,7 +28,7 @@ export default function SeedPage() {
             <span className="font-bold">From your Market</span>
             <div className="flex items-center gap-2">
                 <Image src="/icons/goto-market.png" alt="Arrow Right Icon" width={12} height={12} className="inline-block ml-1" />
-                <LinkText style="font-[500]" text="Go to Market" linkUrl="/market" />
+                <LinkText style="font-[500]" text="Go to Market" linkUrl="/dashboard/market" />
             </div>
           </div>
           <InsightWarningCard 

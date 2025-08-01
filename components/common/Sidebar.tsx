@@ -18,7 +18,7 @@ const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
   // const currentLang = params?.locale as string;
 
 const sidebarData = [
-  { title: "Home", link: `/`, icon: <Home size={18} /> },
+  { title: "Home", link: `/dasboard`, icon: <Home size={18} /> },
   { title: "My Tree", link: "my-tree", icon: <TreePine size={18} /> },
   { title: "Almanac", link: "almanac", icon: <Calendar size={18} /> },
   { title: "Billboard", link: "billboard", icon: <Megaphone size={18} /> },
@@ -50,13 +50,13 @@ const sidebarData = [
 
       <nav className="p-4 space-y-2">
         {sidebarData.map((item, index) => {
-          const fullPath = `/${item.link}`;
+          const fullPath = `/dashboard/${item.link}`;
           const isActive = pathname === fullPath;
 
           return (
             <Link 
               key={index} 
-              href={item.title === "Home" ? `/` : fullPath}
+              href={item.title === "Home" ? `/dashboard` : fullPath}
               onClick={toggleSidebar}
               className={`flex items-center gap-2 px-2 py-2 rounded-md text-sm 
                 ${isActive ? "rounded-[2rem] primary-button-background text-white" : "text-[#2D2D2D] hover:text-[#C79438]"}`}

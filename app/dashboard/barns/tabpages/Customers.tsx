@@ -84,7 +84,7 @@ const Customers = () => {
 
           <BasicCard style=" border border-[#E7E5E4]">
             <div className="mb-6 flex items-center justify-between">
-            <LinkText text="Profile Categories" style="font-bold" linkUrl="/barns" />
+            <LinkText text="Profile Categories" style="font-bold" linkUrl="/dashboard/barns" />
             </div>
             <Grid2Container>
               {

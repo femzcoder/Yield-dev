@@ -30,7 +30,7 @@ export default function HomePage() {
             <span className="text-[12px]">You are <span className="text-[#009F2B]">+4%</span> up from last year</span>
 
             <div className="flex items-center gap-2">
-              <LinkText text="See More" style="text-[12px]" linkUrl="/"/>
+              <LinkText text="See More" style="text-[12px]" linkUrl="/dashboard"/>
               <Image src="/icons/see-more.png" alt="Arrow Right Icon" width={12} height={12} className="inline-block ml-1" />
             </div>
             

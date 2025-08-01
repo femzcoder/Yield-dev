@@ -9,7 +9,7 @@ import { ArrowLeft, LucideShare } from "lucide-react"
 import { useState } from "react"
 import { BasicCard } from "../Cards"
 import { BlueText, TitleText } from "../Typo"
-import { gamePlanData } from "@/app/(dashboard)/almanac/ScheduleCard"
+import { gamePlanData } from "@/app/dashboard/almanac/ScheduleCard"
 
 export function ConverstaionScriptModal() {
   const TabData = [

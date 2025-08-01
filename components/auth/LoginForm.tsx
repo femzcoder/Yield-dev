@@ -46,7 +46,7 @@ export function LoginForm({
     setLoading(true)
     console.log(data)
 
-    redirect(`/${'community'}`)
+    redirect(`/dashboard/${'community'}`)
   }
 
   return (

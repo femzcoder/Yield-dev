@@ -8,7 +8,7 @@ import { ArrowLeft, } from "lucide-react"
 import { useState } from "react"
 import { BasicCard } from "../Cards"
 import { TitleText } from "../Typo"
-import { gamePlanData } from "@/app/(dashboard)/almanac/ScheduleCard"
+import { gamePlanData } from "@/app/dashboard/almanac/ScheduleCard"
 import { ConverstaionScriptModal } from "./ConversationScript"
 
 export function ConverstaionPlannerModal() {

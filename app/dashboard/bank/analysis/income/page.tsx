@@ -30,7 +30,7 @@ const AnalysisIncome = () => {
             <li>Get equipped on business/commercial insurance</li>
             <li>Run worksite events</li>
         </ol>
-        <Link href={`/project`}>
+        <Link href={`/dashboard/project`}>
             <PurpleButton styles='w-full' text='Create Project'/>
         </Link>
             

@@ -65,7 +65,7 @@ const UserIcon = () => {
                 <Separator/>
                 <div className='flex flex-col items-center w-full gap-2 p-2'>
                     <OtherTabs>
-                       <Link href={`/settingsandprivacy`} className='flex items-center gap-4'>
+                       <Link href={`/dashboard/settingsandprivacy`} className='flex items-center gap-4'>
                             <div className='rounded-full bg-[#EEEEEE] p-2'>
                                 <SettingsIcon color='#C79438' size={18} className="" />
                             </div>
@@ -74,7 +74,7 @@ const UserIcon = () => {
                        </Link>
                     </OtherTabs>
                     <OtherTabs>
-                        <Link href={`/helpandsupport`} className='flex items-center gap-4'>
+                        <Link href={`/dashboard/helpandsupport`} className='flex items-center gap-4'>
                             <div className='rounded-full bg-[#EEEEEE] p-2'>
                                 <SettingsIcon color='#C79438' size={18} className="" />
                             </div>
