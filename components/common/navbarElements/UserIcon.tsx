@@ -46,7 +46,7 @@ const UserIcon = () => {
             </NavigationMenuTrigger>
 
           <NavigationMenuContent className='border-none bg-[#E7E5E4] shadow-lg'>
-            <ul className="bg-[#FAFAF9] grid gap-2 w-[400px]">
+            <ul className="bg-[#FAFAF9] grid gap-2 w-[300px] md:w-[400px]">
                 <div className='flex justify-between items-center'>
                     {
                         profileList.map((profile, index) => (
