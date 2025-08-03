@@ -21,13 +21,16 @@ const UserIcon = () => {
             fullname:'Builder'
         },
         {
+            fullname:'Community'
+        },
+        {
             fullname:'Member'
         },
         {
             fullname:'Merchant'
         },
     ]
-    const [activeProfile, setActiveProfile] = useState(profileList[0].fullname);
+    const [activeProfile, setActiveProfile] = useState(profileList[1].fullname);
     const handleProfileClick = (fullname: string) => {
         setActiveProfile(fullname);
     };

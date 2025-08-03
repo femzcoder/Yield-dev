@@ -9,6 +9,7 @@ import 'react-phone-number-input/style.css'
 import React, { useState } from "react"
 import { EyeIcon, EyeOffIcon } from "lucide-react"
 import { Textarea } from "../ui/textarea"
+import { BasicCard2 } from "../Cards"
 
 interface BaseProps {
   label: string
@@ -212,6 +213,7 @@ export const FormCheckbox = ({
 interface RadioGroupProps extends BaseProps {
   options: { label: string; value: string }[]
   selected: string
+  invert?:boolean
   onChange: (value: string) => void
 }
 
@@ -222,21 +224,25 @@ export const FormRadioGroup = ({
   selected,
   onChange,
   error,
+  invert,
   helperText,
 }: RadioGroupProps) => (
   <div className="space-y-2">
     <Label>{label}</Label>
-    <div className="flex flex-col space-y-1">
+    <div className={`flex flex-col space-y-1`}>
       {options.map((opt) => (
         <label key={opt.value} className="flex items-center space-x-2">
-          <input
-            type="radio"
-            name={name}
-            value={opt.value}
-            checked={selected === opt.value}
-            onChange={() => onChange(opt.value)}
-          />
-          <span>{opt.label}</span>
+          <BasicCard2 style={`flex w-full justify-between items-center !rounded-[8px] !py-1 ${invert && 'flex-row-reverse'}`}>
+            <input
+              type="radio"
+              name={name}
+              value={opt.value}
+              checked={selected === opt.value}
+              onChange={() => onChange(opt.value)}
+            />
+            <span>{opt.label}</span>
+          </BasicCard2>
+
         </label>
       ))}
     </div>

@@ -18,7 +18,10 @@ const DashboardLayoutProvider = ({ children }: { children: React.ReactNode }) =>
   useEffect(() => {
     // Open install modal only if app is installable and not already installed
     if (isInstallable && !isInstalled) {
-      setOpenInstall(true);
+      setTimeout(()=>{
+        setOpenInstall(true);
+      },10000)
+      
     }
   }, [isInstallable, isInstalled]);
 
@@ -28,7 +31,7 @@ const DashboardLayoutProvider = ({ children }: { children: React.ReactNode }) =>
         <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
         <div className="relative flex-1 transition-all duration-300 ml-0 lg:ml-48 overflow-x-hidden h-screen bg-[#f9fafb]">
           <Navbar toggleSidebar={toggleSidebar} />
-          <div className="py-6 overflow-y-auto overflow-x-hidden mt-11 relative pb-12 ">
+          <div className="py-6 overflow-y-auto overflow-x-hidden mt-[36px] relative pb-6 ">
             {children}
           </div>
         </div>

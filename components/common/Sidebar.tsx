@@ -29,7 +29,7 @@ const sidebarData = [
   { title: "Bank", link: "bank", icon: <Banknote size={18} /> },
   { title: "Wallet", link: "wallet", icon: <Wallet size={18} /> },
   { title: "Townhall", link: "townhall", icon: <Landmark size={18} /> },
-  { title: "Community", link: "community", icon: <Landmark size={18} /> },
+  // { title: "Community", link: "community", icon: <Landmark size={18} /> },
 ];
   return (
     <aside className={`

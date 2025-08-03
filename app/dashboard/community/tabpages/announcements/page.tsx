@@ -7,7 +7,7 @@ import React from 'react'
 
 const Announcements = () => {
   return (
-    <div className='p-2 md:p-6'>
+    <div className=' pt-4'>
       <div className='space-y-8'>
         {/* speakers sessions */}
 

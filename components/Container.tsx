@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { TitleText } from "./Typo";
 import { Textarea } from "./ui/textarea";
+import QuickAdd from "./quickAdd/QuickAdd";
 
 type EmailModalProps = {
   open: boolean;
@@ -171,7 +172,7 @@ export const AssistantContainer = ({ children }: { children: React.ReactNode }) 
   const chatbot = useChatbot();
 
   return (
-    <div className="p-2 md:p-4 space-y-6">
+    <div className=" space-y-6">
       <div className="bg-white pl-2 flex items-center justify-between gap-4">
         <h3 className="font-semibold">Need Assistant?</h3>
         <div className="flex items-center gap-2 border-2 border-[#722F37] rounded-l-full px-2 py-1" onClick={() => {
@@ -184,7 +185,10 @@ export const AssistantContainer = ({ children }: { children: React.ReactNode }) 
           </div>
         </div>
       </div>
-      {children}
+      <div className="px-4">
+        {children}        
+      </div>
+
     </div>
   );
 }
@@ -210,6 +214,7 @@ export const PrimaryTabContainer = ({ TabData }: PrimaryTabContainerProps) => {
 
   return (
     <AssistantContainer >
+      <div className='mb-4 flex w-full justify-end'><QuickAdd/></div>
       <>
         <div className="w-full grid grid-cols-4 p-2 bg-[#F2F1F1]">
           {TabData.map((tab, index) => (
@@ -238,8 +243,10 @@ export const PrimaryTabContainerNoAssistant = ({ TabData }: PrimaryTabContainerP
   const [activeTab, setActiveTab] = useState<TabItem>(TabData[0]);
 
   return (
-      <>
+      <div className="px-4">
+        <div className='mb-4 flex w-full justify-end'><QuickAdd/></div>
         <div className="w-full grid grid-cols-2 md:grid-cols-4 p-2 bg-[#F2F1F1]">
+          
           {TabData.map((tab, index) => (
             <button
               onClick={() => setActiveTab(tab)}
@@ -255,8 +262,8 @@ export const PrimaryTabContainerNoAssistant = ({ TabData }: PrimaryTabContainerP
           ))}
         </div>
 
-        <div className="lg:p-4">{activeTab.content}</div>      
-      </>
+        <div className="">{activeTab.content}</div>      
+      </div>
 
   );
 };

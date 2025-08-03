@@ -5,13 +5,11 @@ import React from 'react'
 import Announcements from './tabpages/announcements/page'
 import Leaderboard from './tabpages/leaderboard/page'
 import Forum from './tabpages/forum/page'
-import QuickAdd from '@/components/quickAdd/QuickAdd'
 
 
 const Community = () => {
   return (
     <>
-      <div className='mb-4 flex w-full justify-end'><QuickAdd/></div>
       <PrimaryTabContainerNoAssistant TabData={TabData}/>
     </>
 

@@ -9,7 +9,7 @@ import LeaderBosrd from './LeaderBoard'
 
 const Leaderboard = () => {
   return (
-    <div>
+    <div className=' pt-4'>
 
       <div className='flex items-center justify-between mb-4'>
         <div>

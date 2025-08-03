@@ -93,16 +93,34 @@ export type ProfileFormValues = {
   city: string
   id_method: string
   id_number: string
-
+  address:string
     phone: string
+    alt_phone:string
   email: string
-  address: string
+  alt_email: string
+  address1: string
+  address2: string
 
     degree: string
     languages: {
     name: string
     level: "basic" | "fluent"
-  }[]
+  }[],
+
+  company:string
+  company_website:string
+  company_annual_revenue:string
+  company_id:string
+  company_address_1:string
+  company_address_2:string
+  company_status:string
+  company_years:string
+  company_employees:string
+  postal_code:string 
+    recently_smoked: string
+  hasDisability: string
+  disability: string
+  note: string
 };
 
 

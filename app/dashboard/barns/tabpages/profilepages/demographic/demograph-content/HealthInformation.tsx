@@ -1,31 +1,27 @@
-// components/demograph-content/EmploymentInformation.tsx
-import { FormSelect } from "@/components/common/FormInput"
-import { Controller, FieldErrors, Control } from "react-hook-form"
-
-type FormValues = {
-  recently_smoked: string
-  hasDisability: string
-  disability: string
-
-}
+import { FormInput, FormRadioGroup } from "@/components/common/FormInput"
+import { ProfileFormValues } from "@/lib/types"
+import { Controller, FieldErrors, Control, UseFormRegister } from "react-hook-form"
 
 type Props = {
-  control: Control<FormValues>
-  errors: FieldErrors<FormValues>
+  register: UseFormRegister<ProfileFormValues>
+  control: Control<ProfileFormValues>
+  errors: FieldErrors<ProfileFormValues>
 }
 
-const HealthInformation = ({ control, errors }: Props) => {
+const HealthInformation = ({ register, control, errors }: Props) => {
   return (
     <div className="space-y-4">
+      {/* Smoker */}
       <Controller
         name="recently_smoked"
         control={control}
-        rules={{ required: "All Health information is required" }}
+        rules={{ required: "Please specify if you smoke" }}
         render={({ field }) => (
-          <FormSelect
-            label="Have you smoked in the last 12 months?"
+          <FormRadioGroup
+            label="Smoker"
+            invert={true}
             name="recently_smoked"
-            value={field.value}
+            selected={field.value}
             onChange={field.onChange}
             options={[
               { label: "Yes", value: "yes" },
@@ -35,44 +31,43 @@ const HealthInformation = ({ control, errors }: Props) => {
           />
         )}
       />
+
+      {/* Recently smoked */}
       <Controller
         name="hasDisability"
         control={control}
-        rules={{ required: "All Health information is required" }}
+        rules={{ required: "Please specify if you smoked in the last 12 months" }}
         render={({ field }) => (
-          <FormSelect
-            label="Have you smoked in the last 12 months?"
+          <FormRadioGroup
+            label="Pre-existing conditions"
             name="hasDisability"
-            value={field.value}
+            invert={true}
+            selected={field.value}
             onChange={field.onChange}
             options={[
               { label: "Yes", value: "yes" },
               { label: "No", value: "no" },
-              { label: "Prefer not to say", value: "undefined" },
+              { label: "Not sure", value: "undefined" },
             ]}
             error={errors.hasDisability}
           />
         )}
       />
-      <Controller
-        name="disability"
-        control={control}
-        rules={{ required: "All Health information is required" }}
-        render={({ field }) => (
-          <FormSelect
-            label="If yes, please indicate the type(s):"
-            name="disability"
-            value={field.value}
-            onChange={field.onChange}
-            options={[
-              { label: "P", value: "citizen" },
-              { label: "Resident", value: "resident" },
-              { label: "Visitor", value: "visitor" },
-            ]}
-            error={errors.disability}
-          />
-        )}
+
+      <FormInput
+        label="Note"
+        type="text"
+        placeholder="Write message here"
+        {...register("note", {
+          required: "Note is required",
+          pattern: {
+            value: /^\S+@\S+$/i,
+            message: "Invalid note format",
+          },
+        })}
+        error={errors.note}
       />
+
     </div>
   )
 }

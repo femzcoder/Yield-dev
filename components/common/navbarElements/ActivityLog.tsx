@@ -33,13 +33,13 @@ const ActivityLog = () => {
 
 export default ActivityLog
 
-const ActivityCard = ({title, date}:{title:string, date?:string})=>{
+export const ActivityCard = ({title, date}:{title:string, date?:string})=>{
     const [hover, setHover] = useState(false)
     return(
-        <div className={`${hover? 'bg-[#F2F1F1]': 'bg-white'} p-3 w-full flex items-center gap-3`} onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
-            {hover &&<div className='w-[10px] h-[10px] rounded-full bg-[#C79438]'></div>}
-            <div className={`${hover? 'border-l-2 border-[#C79438]':''} pl-3 bg-white`}>
-                <p>{title} <span>{date}</span></p>
+        <div className={`${hover? 'bg-[#F2F1F1]': 'bg-white'} p-2 w-full flex items-center gap-3`} onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
+            {hover &&<div className='w-[6px] h-[6px] rounded-full bg-[#C79438]'></div>}
+            <div className={`${hover? 'border-l-2 border-[#C79438]':''} pl-3 bg-white w-full`}>
+                <p className='text-[14px] font-medium'>{title} <span className='font-[300] text-[10px]'>{date}</span></p>
                 <Button variant={'ghost'} className='gradient-text '>View Details</Button>                
             </div>
 

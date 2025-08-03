@@ -8,6 +8,7 @@ import React from 'react'
 
 const Forum = () => {
   return (
+    
     <div className='p-6'>
       <div className='space-y-8'>
 

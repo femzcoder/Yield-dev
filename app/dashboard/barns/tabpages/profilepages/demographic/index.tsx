@@ -1,7 +1,7 @@
 // components/Demographic.tsx
 "use client"
 
-import { BasicCard } from "@/components/Cards"
+import { BasicCard, BasicCard2 } from "@/components/Cards"
 import {
   Accordion,
   AccordionContent,
@@ -9,13 +9,23 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { useForm, SubmitHandler } from "react-hook-form"
-import EmploymentInformation from "./demograph-content/EmploymentInformation"
+import { Label } from "@/components/ui/label"
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/components/ui/radio-group"
 import { Button } from "@/components/ui/button"
 import PersonalInformation from "./demograph-content/PersonalInformation"
 import ContactInformation from "./demograph-content/ContactInformation"
 import CitizenInformation from "./demograph-content/CitizenInformation"
-import EducationInformation from "./demograph-content/EducationInformation"
+// import EducationInformation from "../../careerpages/career-content/EducationInformation"
 import { ProfileFormValues } from "@/lib/types"
+import { Dialog, DialogContent,  DialogFooter,  DialogHeader } from "@/components/ui/dialog"
+import { ArrowLeft } from "lucide-react"
+import { TitleText } from "@/components/Typo"
+import { useEffect, useState } from "react"
+import SuccessModal from "@/components/common/modals/SuccessModals"
+import HealthInformation from "./demograph-content/HealthInformation"
 
 type FormValues = {
   occupation: string
@@ -29,7 +39,22 @@ type FormValues = {
   degree: string
 }
 
-const Demographic = () => {
+const Demographic = (
+  {
+  open,
+  onOpenChange,
+  create=false
+
+}: {
+  open: boolean
+  create:boolean
+  onOpenChange: (open: boolean) => void
+}
+) => {
+    const [isPreview, setIsPreview] = useState<boolean>(false);
+    const [isSuccessful, setIsSuccessful]= useState(false)
+    const [isCreate, setIsCreate]= useState(create)
+    const [selectedValue, setSelectedValue] = useState('')
   const {
     register,
     handleSubmit,
@@ -58,12 +83,21 @@ const Demographic = () => {
         name: 'English',
         level: "basic" 
       }]
+      
     }
   })
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log("Form Submitted:", data)
+    setIsSuccessful(true)
+    onOpenChange(false)
   }
+
+  useEffect(()=>{
+    if(selectedValue !== ''){
+      setIsCreate(false)
+    }
+  },[selectedValue])
 
   const accordionData = [
     {
@@ -82,23 +116,9 @@ const Demographic = () => {
       content: <CitizenInformation control={control} register={register} errors={errors}/> ,
     },
     {
-      title: "Employment Information",
-      date: "Created on: 17 Feb 25",
-      content: (
-        <EmploymentInformation control={control} register={register} errors={errors} />
-      ),
-    },
-    {
-      title: "Education Information",
-      date: "Created on: 17 Feb 25",
-      content: (
-        <EducationInformation register={register} control={control} errors={errors} />
-      ),
-    },
-    {
       title: "Health Information",
       date: "Created on: 17 Feb 25",
-      content: <p>Health section content here</p>,
+      content: <HealthInformation control={control} register={register} errors={errors}/>
     },
     {
       title: "Others Information",
@@ -108,32 +128,115 @@ const Demographic = () => {
   ]
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <BasicCard>
-        <Accordion
-          type="single"
-          collapsible
-          className="w-full space-y-4 "
-          defaultValue="item-0"
-        >
-          {accordionData.map((item, id) => (
-            <AccordionItem key={id} className="border-none space-y-3" value={`item-${id}`}>
-              <AccordionTrigger className="border shadow-lg border-[#F2F1F1] rounded-[12px] px-3">
-                <div>
-                  <p>{item.title}</p>
-                  <p className="text-[#595657] font-[300] text-[12px]">{item.date}</p>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-balance px-4">
-                {item.content}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </BasicCard>
+    <>
+      <Dialog open={open} onOpenChange={onOpenChange} >
+        <DialogContent className=" flex flex-col bg-white border-none rounded-2xl p-0 max-h-[80vh] sm:max-w-[70%] ">
+          {/* Header */}
+          <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
+            <div className="flex items-center gap-1 px-4">
+              <ArrowLeft onClick={() => onOpenChange(false)} className="cursor-pointer" />
+              <h3 className="text-sm font-semibold">{isCreate? 'Create' : 'Demographic'}</h3>
+            </div>
+          </DialogHeader>
 
-      <Button type="submit">Submit</Button>
-    </form>
+          { isCreate ?
+            <div className="p-10 space-y-1">
+              <TitleText text="What would you like to create?" style="!font-medium"/>
+              <RadioGroup 
+                defaultValue={selectedValue}
+                onValueChange={(value) => setSelectedValue(value)}
+                >
+                <BasicCard2 style="flex items-center justify-between !p-3 !rounded-[12px] gap-3">
+                  <Label htmlFor="r1">Create contact as prospect</Label>
+                  <RadioGroupItem value="prospect" id="r1" />
+                </BasicCard2>
+                <BasicCard2 style="flex items-center justify-between !p-3 !rounded-[12px] gap-3">
+                  <Label htmlFor="r2">Create contact as customer</Label>                  
+                  <RadioGroupItem value="customer" id="r2" />
+
+                </BasicCard2>
+                <BasicCard2 style="flex items-center justify-between !p-3 !rounded-[12px] gap-3">
+                  <Label htmlFor="r3">Create contact as others</Label>                  
+                  <RadioGroupItem value="others" id="r3" />
+
+                </BasicCard2>
+              </RadioGroup>
+            </div>:
+
+            <>
+            <div className="px-6">
+              <TitleText text="Demographics"style="text-[#2D2D2D] text-sm font-semibold"/>
+              <TitleText text="17 February, 2025"style="text-[#2D2D2D] text-sm font-medium"/>
+            </div>
+
+
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 h-full overflow-y-auto">
+              <BasicCard>
+                <Accordion
+                  type="single"
+                  collapsible
+                  className="w-full space-y-4 "
+                  defaultValue="item-0"
+                >
+                  {accordionData.map((item, id) => (
+                    <AccordionItem key={id} className="border-none space-y-3" value={`item-${id}`}>
+                      <AccordionTrigger className="border shadow-lg border-[#F2F1F1] rounded-[8px] px-3">
+                        <div>
+                          <p>{item.title}</p>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="flex flex-col gap-4 text-balance px-4">
+                        {item.content}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </BasicCard>
+
+              {/* <Button type="submit">Submit</Button> */}
+
+              <DialogFooter className="w-full absolute bottom-0 bg-white p-2">
+                      {!isPreview ? (
+                        <Button
+                          className="rounded-[8px] text-white"
+                          onClick={() => setIsPreview(true)}
+                          type="button"
+                        >
+                          Preview
+                        </Button>
+                      ) : (
+                        <div className="flex w-full items-center justify-between">
+                          <Button
+                            className="rounded-[8px]"
+                            onClick={() => setIsPreview(false)}
+                            variant={"secondary"}
+                            type="button"
+                          >
+                            Edit
+                          </Button>
+                          <Button type='submit' className="rounded-[8px] text-white" >
+                            Save
+                          </Button>
+                        </div>
+                      )}
+              </DialogFooter>
+
+            </form>              
+            </>
+          }
+
+        
+        </DialogContent>
+
+      </Dialog>    
+      <SuccessModal
+        open={isSuccessful}
+        onOpenChange={setIsSuccessful}
+        title="Contact Created Successfully"
+      />
+    </>
+
+
   )
 }
 
