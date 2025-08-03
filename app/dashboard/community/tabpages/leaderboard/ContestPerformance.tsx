@@ -2,7 +2,7 @@ import React from 'react'
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Separator } from '@/components/ui/separator'
-import ReactSpeedometer from "react-d3-speedometer"
+// import ReactSpeedometer from "react-d3-speedometer"
 import { BasicCard } from '@/components/Cards'
 import { FilterButton } from '@/components/OtherButtons'
 import { TitleText } from '@/components/Typo'
@@ -40,7 +40,7 @@ const ContestPerformance = () => {
             <div className='w-full h-[30vh] flex items-center justify-center'>
 
                 <div className='h-[80%] w-[60%]'>
-                    <ReactSpeedometer
+                    {/* <ReactSpeedometer
                     height={50}
                     needleColor="black"
                     needleTransitionDuration={1000}
@@ -55,7 +55,7 @@ const ContestPerformance = () => {
                             "#FF823A",
                             "#FFCA3A",
                             "#288D27",
-                        ]}/>   
+                        ]}/>    */}
                 </div>
              
             </div>           
