@@ -218,7 +218,7 @@ const ProfileCategoryCardData = [
     isActive: true,
   },
   {
-    title: "Portfolio",
+    title: "Finance",
     imageUrl: "/icons/cat2.png",
 
     isActive: false,
@@ -236,12 +236,12 @@ const ProfileCategoryCardData = [
     isActive: false,
   },
   {
-    title: "Gallery",
+    title: "Media",
     imageUrl: "/icons/cat5.png",
     isActive: false,
   } ,
   {
-    title: "Reports",
+    title: "Files",
     imageUrl: "/icons/cat6.png",
     isActive: false,
   },
