@@ -19,18 +19,6 @@ import EmploymentInformation from "./career-content/EmploymentInformation"
 import EducationInformation from "./career-content/EducationInformation"
 import CompanyInformation from "./career-content/CompanyInformation"
 
-type FormValues = {
-  occupation: string
-  employer: string
-  citizen_status: string
-  country: string
-  province: string
-  city: string
-  id_method: string
-  id_number: string
-  degree: string
-}
-
 const Careers = (
   {
   open,
@@ -72,7 +60,7 @@ const Careers = (
     }
   })
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const onSubmit: SubmitHandler<ProfileFormValues> = (data) => {
     console.log("Form Submitted:", data)
   }
 

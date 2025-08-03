@@ -15,7 +15,7 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import Demographic from './profilepages/demographic'
 import Needs from './needspages/page'
-import Careers from './careerpages/page'
+import Careers from './careerpages/CareerModal'
 import ProfileHistoryModal from './profilepages/ProfileHistory'
 import { Breadcrumbs } from '@/components/Breadcrumb'
 
