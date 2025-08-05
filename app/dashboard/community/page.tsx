@@ -19,8 +19,8 @@ const Community = () => {
 export default Community;
 
 const TabData = [
-  { title: 'Announcements', content: <Announcements/> },
+  { title: 'Latest', content: <Announcements/> },
   { title: 'Leaderboard', content: <Leaderboard/> },
   { title: 'Forum', content: <Forum/> },
-  { title: '', content: '<Partners/>' },
+  // { title: '', content: '<Partners/>' },
 ];

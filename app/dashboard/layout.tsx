@@ -1,5 +1,6 @@
 import { ChatbotProvider } from "@/components/chatbot/Chatbot";
 import DashboardLayoutProvider from "@/components/common/LayoutProvider";
+// import { useEffect } from "react";
 
 
 export default async function RootLayout({
@@ -7,7 +8,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
 
   return (
     <html>

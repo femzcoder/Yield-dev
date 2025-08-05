@@ -8,8 +8,22 @@ import { LinkText, TitleText } from "@/components/Typo";
 import { TrendingCardData } from "@/lib/data";
 import { Plus } from "lucide-react";
 import Image from "next/image";
+import { useEffect } from "react";
+import OneSignal from "react-onesignal";
 
 export default function HomePage() {
+    useEffect(() => {
+    // Ensure this code runs only on the client side
+    if (typeof window !== 'undefined') {
+      OneSignal.init({
+        appId: '918b727b-88b7-4c2d-894e-d198d84678b0',
+        // You can add other initialization options here
+        // notifyButton: {
+        //   enable: true,
+        // }
+      });
+    }
+  }, []);
   // const t = await getTranslations("HomePage");
   return (
     <div className="p-4 space-y-6">

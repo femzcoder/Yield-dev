@@ -130,7 +130,7 @@ const Demographic = (
   return (
     <>
       <Dialog open={open} onOpenChange={onOpenChange} >
-        <DialogContent className=" flex flex-col bg-white border-none rounded-2xl p-0 max-h-[80vh] sm:max-w-[70%] ">
+        <DialogContent className=" flex flex-col bg-white border-none md:rounded-2xl p-0 md:max-h-[80vh] sm:max-w-[70%] w-full h-full">
           {/* Header */}
           <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
             <div className="flex items-center gap-1 px-4">

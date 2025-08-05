@@ -48,7 +48,7 @@ const UserIcon = () => {
 
             </NavigationMenuTrigger>
 
-          <NavigationMenuContent className='border-none bg-[#E7E5E4] shadow-lg'>
+          <NavigationMenuContent className='border-none bg-[#E7E5E4] shadow-lg w-full'>
             <ul className="bg-[#FAFAF9] grid gap-2 w-[300px] md:w-[400px]">
                 <div className='flex justify-between items-center'>
                     {

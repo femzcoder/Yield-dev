@@ -30,7 +30,10 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
               />
             </button>
         </div>
-            <UserIcon/> 
+        <div>
+            <UserIcon/>           
+        </div>
+
       </div>
 
         <div className="flex items-center gap-2">

@@ -40,4 +40,3 @@ const Tab = ({ title, isActive, onClick }: { title: string; isActive: boolean; o
     </button>
   );
 }
-

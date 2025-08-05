@@ -1,7 +1,6 @@
 import { BasicCard, EmptyState, InteractionCard, ProfileCategoryCard } from '@/components/Cards'
-import { FlexContainer, Grid2Container } from '@/components/Container'
-import { PlanConverstaionModal } from '@/components/conversationPlanner/PlanConversation'
-import { AddProspectButton } from '@/components/OtherButtons'
+import {  Grid2Container } from '@/components/Container'
+import { AddProspectButton, PurpleButton } from '@/components/OtherButtons'
 import { LinkText, PurpleText, TextWithIcon, TitleText } from '@/components/Typo'
 import { Button } from '@/components/ui/button'
 import {
@@ -65,23 +64,24 @@ const Overview = () => {
 
         <Grid2Container>
           <BasicCard style=" border border-[#E7E5E4] w-full space-y-4">
-            <FlexContainer>
+            <div className='flex items-center justify-between'>
               <div className="flex items-center gap-2">
                   <Image src="/icons/userIcon.png" alt="Insight Icon" width={24} height={24} className="inline-block mr-2" />
                   <div>
                       <h3 className="font-semibold text-[#722F37]">Gabriel</h3>
-                      <div className="flex items-center gap-2">
+                      <div className="hidden md:flex items-center gap-2">
                           <Button variant="default" size={'sm'} className='rounded-[8px] text-white'>Green Field</Button>
                           <Button variant="default" size={'sm'} className='rounded-[8px] text-white'>VIP-LTV</Button>
                       </div>
                   </div>
               </div>
               <div>
-                <PlanConverstaionModal/>
+                {/* <PlanConverstaionModal/> */}
+                <PurpleButton text='Enrich'/>
               </div>
               
 
-            </FlexContainer>
+            </div>
 
             <div className='bg-[#F2F1F1] rounded-3xl p-2 flex items-center justify-between mb-4 blur-xs'>
               <TextWithIcon text="+91 81658 78656" icon={<Phone size={16} color='#C58B18' />} />
@@ -89,21 +89,21 @@ const Overview = () => {
             </div>
 
 
-            <FlexContainer >
-              <div className='space-y-1'>
+            <div className='flex justify-between items-center' >
+              <div className='space-y-2'>
                 <PurpleText text='Prospect'/>
                 <p className='text-xs'>Created at: <span className='font-bold'>Feb 2025</span></p>
                 <p className='text-xs'>Active Policies: <span className='font-bold'>0</span></p>
                 <p className='text-xs'>Last Enriched: <span className='font-bold'>0</span></p>
               </div>
-              <div className='space-y-1'>
+              <div className='space-y-2'>
                 <p className='font-bold border border-[#F2F1F1] rounded-[8px] px-2'> SGD 250,000.00  LTV</p>
                 <p className='text-xs'>Last Interaction: <span className='font-bold'>1 day ago</span></p>
                 <p className='text-xs'>Last Updated: <span className='font-bold'>Today</span></p>
                 <p onClick={()=>setOpenProfile(true)} className='text-xs underline'>Profile History</p>
               </div>
 
-            </FlexContainer>
+            </div>
 
 
             <div className="w-full border-t border-[#E7E5E4] pt-2">
@@ -155,7 +155,7 @@ const Overview = () => {
                     InteractionCardData.length === 0 ? (
                       <EmptyState />
                     ) : ( 
-                      <Grid2Container>
+                      <div className='grid grid-cols-2 gap-3'>
                         {
                         InteractionCardData.map((item, index) => (
                             <InteractionCard
@@ -165,7 +165,7 @@ const Overview = () => {
                                 date={item.date}
                             />
                         ))}
-                    </Grid2Container>
+                    </div>
                     )
                   }
 

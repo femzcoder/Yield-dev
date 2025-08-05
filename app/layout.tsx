@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import OneSignalProvider from "@/components/OneSignalProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -46,9 +47,11 @@ export default async function RootLayout({
         <link rel="apple-touch-icon" sizes="512x512" href="/icons/Logo-512x512.png" />
         <link rel="apple-touch-startup-image" href="/icons/Logo-dark.png" />
         <meta name="theme-color" content="000000" />
+
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* <NextIntlClientProvider messages={messages} locale={locale}> */}
+          <OneSignalProvider/>
           {children}
         {/* </NextIntlClientProvider> */}
       </body>

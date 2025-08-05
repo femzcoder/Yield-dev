@@ -16,7 +16,7 @@ function ResorcesModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className=" flex flex-col bg-white border-none rounded-2xl p-0">
+      <DialogContent className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
         {/* Header */}
         <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
@@ -72,7 +72,7 @@ function ResorcesModal({
                             alt=""
                           />
                           <div>
-                            <p className="font-semibold text-[14px]">Introduction to the App</p>
+                            <p className="font-medium text-[14px]">Introduction to the App</p>
                             <span className="text-sm text-gray-500">Learn the basics of using our app</span>
                           </div>
                         </BasicCard2>

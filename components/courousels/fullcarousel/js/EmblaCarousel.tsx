@@ -36,9 +36,9 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((index) => (
-            <div className="h-[35vh] embla__slide rounded-3xl border border-[#F2F1F1] p-1" key={index}>
+            <div className="h-[25vh] md:h-[35vh] embla__slide rounded-[6px] md:rounded-3xl border border-[#F2F1F1] p-1" key={index}>
               <div className='h-[70%] w-full flex rounded-t-3xl justify-center items-center primary-button-background'>
-                <span className='font-semibold text-center text-2xl text-white w-[70%] md:w-full '>Welcome to Our Presentation</span>
+                <span className='font-semibold text-center md:text-2xl text-white text-[16px] '>Welcome to Our Presentation</span>
               </div>
               <div>
                 <p className='text-sm md:text-lg w-full pt-3 text-center text-[#595657]'>Transform your business with cutting-edge technology and strategic insights that drive growth and success.</p>                

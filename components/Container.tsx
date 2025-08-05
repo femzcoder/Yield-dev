@@ -245,15 +245,15 @@ export const PrimaryTabContainerNoAssistant = ({ TabData }: PrimaryTabContainerP
   return (
       <div className="px-4">
         <div className='mb-4 flex w-full justify-end'><QuickAdd/></div>
-        <div className="w-full grid grid-cols-2 md:grid-cols-4 p-2 bg-[#F2F1F1]">
+        <div className="w-full flex  md:grid grid-cols-2 md:grid-cols-4 gap-2 ">
           
           {TabData.map((tab, index) => (
             <button
               onClick={() => setActiveTab(tab)}
               key={index}
-              className={`w-full p-2 text-center ${
+              className={`w-full p-1 md:p-2 text-center text-sm md:text-[14px] border rounded-3xl ${
                 activeTab.title === tab.title
-                  ? 'primary-button-background text-white rounded-3xl'
+                  ? 'primary-button-background text-white font-medium'
                   : 'bg-transparent text-[#722F37]'
               }`}
             >

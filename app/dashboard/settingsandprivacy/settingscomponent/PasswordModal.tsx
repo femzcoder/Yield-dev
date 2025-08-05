@@ -24,7 +24,7 @@ function PasswordModal({
 }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className=" flex flex-col bg-white border-none rounded-2xl p-0">
+      <DialogContent className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
         {/* Header */}
         <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
@@ -35,7 +35,7 @@ function PasswordModal({
 
         <div className="p-6 space-y-4 overflow-y-auto">
 
-          <div className="px-1 py-2 shadow-md">
+          <div className="px-1 py-2 shadow-md hidden md:block">
             <p className="font-semibold text-[#2D2D2D]">Change password details below</p>
           </div>
 

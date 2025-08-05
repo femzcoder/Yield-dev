@@ -36,7 +36,7 @@ function ProfileModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] h-[66vh] flex flex-col bg-white border-none rounded-2xl p-0">
+      <DialogContent className="w-[100vw] sm:max-w-[500px] h-full sm:h-[66vh] flex flex-col bg-white border-none md:rounded-2xl p-0">
         {/* Header */}
         <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">

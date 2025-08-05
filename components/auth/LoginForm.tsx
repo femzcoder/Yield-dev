@@ -65,7 +65,7 @@ export function LoginForm({
 
           <CardTitle className="text-center font-bold text-[28px]">Log In</CardTitle>
           <CardDescription className="text-center">
-            Enter your email and password to login
+            Enter your email below to login to your account.
           </CardDescription>
         </CardHeader>
         <CardContent>

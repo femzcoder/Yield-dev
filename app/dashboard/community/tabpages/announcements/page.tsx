@@ -1,17 +1,46 @@
 import { BasicCard } from '@/components/Cards'
 import FullCarousel from '@/components/courousels/fullcarousel/js'
 import { BlueText } from '@/components/Typo'
-import { Separator } from '@/components/ui/separator'
 import Image from 'next/image'
 import React from 'react'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Separator } from '@/components/ui/separator'
+import { FilterButton } from '@/components/OtherButtons'
 
 const Announcements = () => {
   return (
     <div className=' pt-4'>
       <div className='space-y-8'>
+        <div className='flex items-center justify-between mb-4'>
+          <div>
+            <p className=' font-bold'>Sprint 0</p>
+            <p className='font-normal text-sm md:font-semibold'>4-15 February, 2025</p>
+            <span className='hidden md:block text-[12px]'>Enrichment will be performed on 18 February 2025</span>
+          </div>        
+
+            <div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <FilterButton type='button' text='This Week'/>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem  >
+                      Create
+                    </DropdownMenuItem>
+                    <Separator/>
+                    <DropdownMenuItem  >
+                      Audio
+                    </DropdownMenuItem>
+
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+        </div>
         {/* speakers sessions */}
 
-        <BasicCard>
+        {/* <BasicCard> */}
           <Image
             width={100}
             height={20}
@@ -19,7 +48,7 @@ const Announcements = () => {
             src="/images/Cardpoc.svg"
             className='w-full'
           />          
-        </BasicCard>
+        {/* </BasicCard> */}
 
         <div className='relative px-3 py-8'>
           <Image
@@ -45,16 +74,16 @@ const Announcements = () => {
 
         <Separator/>
         
-        <BasicCard>
+        <>
           <FullCarousel/>
-        </BasicCard>
+        </>
 
-        <BasicCard style='space-y-4'>
+        <BasicCard style='space-y-4 mt-6'>
                     <div>
-                      <p className='font-semibold text-2xl'>Useful Links</p>
+                      <p className='font-semibold text-lg md:text-2xl'>Useful Links</p>
                     </div>
 
-                    <ul className=" space-x-2">
+                    <ul className=" space-x-3">
                       <li className="flex flex-col list-disc">
                         <span>Link 1</span>
                         <a href="https://onetime.com"><BlueText style='font-medium text-sm' text='https://onetime.com' /></a>

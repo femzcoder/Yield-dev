@@ -14,8 +14,8 @@ const Leaderboard = () => {
       <div className='flex items-center justify-between mb-4'>
         <div>
           <p className=' font-bold'>Sprint 0</p>
-          <p className=' font-semibold'>4-15 February, 2025</p>
-          <span className='text-[12px]'>Enrichment will be performed on 18 February 2025</span>
+          <p className='font-normal text-sm md:font-semibold'>4-15 February, 2025</p>
+          <span className='hidden md:block text-[12px]'>Enrichment will be performed on 18 February 2025</span>
         </div>        
 
           <div>
