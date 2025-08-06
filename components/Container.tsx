@@ -216,7 +216,7 @@ export const PrimaryTabContainer = ({ TabData }: PrimaryTabContainerProps) => {
     <AssistantContainer >
       <div className='mb-4 flex w-full justify-end'><QuickAdd/></div>
       <>
-        <div className="w-full grid grid-cols-4 p-2 bg-[#F2F1F1]">
+        <div className="w-full grid grid-cols-4 p-2 lg:bg-[#F2F1F1]">
           {TabData.map((tab, index) => (
             <button
               onClick={() => setActiveTab(tab)}

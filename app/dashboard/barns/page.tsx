@@ -19,6 +19,6 @@ export default Barns
 const TabData = [
   { title: 'Overview', content: <Overview/> },
   { title: 'Contacts', content: <Contacts/> },
-  { title: 'Customer', content: <Customers/> },
+  // { title: 'Customer', content: <Customers/> },
   { title: 'Queue', content: <Queue/> },
 ];

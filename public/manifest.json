@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "Yield",
+  "short_name": "OS Yield",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#E54B4D",
+  "background_color": "#ffffff",
+  "icons": [
+    { "src": "/icons/Logo-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/Logo-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "id": "?homescreen=1"
+}
