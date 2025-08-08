@@ -214,14 +214,14 @@ export const PrimaryTabContainer = ({ TabData }: PrimaryTabContainerProps) => {
 
   return (
     <AssistantContainer >
-      <div className='mb-4 flex w-full justify-end'><QuickAdd/></div>
+      <div className='hidden lg:flex mb-4 w-full justify-end'><QuickAdd/></div>
       <>
         <div className="w-full grid grid-cols-4 p-2 lg:bg-[#F2F1F1]">
           {TabData.map((tab, index) => (
             <button
               onClick={() => setActiveTab(tab)}
               key={index}
-              className={`w-full p-2 text-center ${
+              className={`w-full px-2 py-1 text-center ${
                 activeTab.title === tab.title
                   ? 'primary-button-background text-white rounded-3xl'
                   : 'bg-transparent text-[#722F37]'

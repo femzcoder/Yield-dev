@@ -1,3 +1,4 @@
+'use client'
 // components/FormInput.tsx
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -9,6 +10,7 @@ import 'react-phone-number-input/style.css'
 import React, { useState } from "react"
 import { EyeIcon, EyeOffIcon } from "lucide-react"
 import { Textarea } from "../ui/textarea"
+import { BasicCard2 } from "../Cards"
 
 interface BaseProps {
   label: string

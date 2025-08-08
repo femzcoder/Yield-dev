@@ -18,10 +18,10 @@ const Contacts = () => {
 
       <div >
         <div className='flex items-center gap-2 mb-4'>
-           <Button className='rounded-3xl text-white'>All (0)</Button>
-           <Button variant={'outline'} className='rounded-3xl  '>Prospect (0)</Button>
-           <Button variant={'outline'} className='rounded-3xl  '>Customer (0)</Button>
-           <Button variant={'outline'} className='rounded-3xl  '>Others (0)</Button>
+           <Button size={'sm'} className='rounded-3xl text-white'>All (0)</Button>
+           <Button size={'sm'} variant={'outline'} className='rounded-3xl  '>Prospect (0)</Button>
+           <Button size={'sm'} variant={'outline'} className='rounded-3xl  '>Customer (0)</Button>
+           <Button size={'sm'} variant={'outline'} className='rounded-3xl  '>Others (0)</Button>
         </div>
         <Grid2Container>
           <BasicCard style='w-full flex items-center justify-between'>

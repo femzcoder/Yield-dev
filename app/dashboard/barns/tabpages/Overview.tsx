@@ -11,19 +11,14 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { MessageSquare, Phone } from 'lucide-react'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
-import Demographic from './profilepages/demographic'
+import React, { useEffect } from 'react'
 import Needs from './needspages/page'
-import Careers from './careerpages/CareerModal'
-import ProfileHistoryModal from './profilepages/ProfileHistory'
 import { Breadcrumbs } from '@/components/Breadcrumb'
+import { useRouter } from 'next/navigation'
 
 const Overview = () => {
     const [activeProspectCard, setActiveProspectCard] = React.useState('');
-    const [openDemographic, setOpenDemographic] = useState(false)
-    // const [openNeeds, setOpenNeeds] = useState(false)
-    const [openCareer, setOpenCareer] = useState(false)
-    const [openProfile, setOpenProfile] = useState(false)
+    const router = useRouter()
     // const handleAddProspectClick = () => {
     //     setActiveProspectCard('');
     // };
@@ -33,11 +28,12 @@ const Overview = () => {
     useEffect(()=>{
       if(activeProspectCard){
         if(activeProspectCard === 'Demographic'){
-          setOpenDemographic(true)
+          router.push('/dashboard/barns/tabpages/profilepages/demographic')
+          // setOpenDemographic(true)
         }else if(activeProspectCard === 'Needs'){
           // setOpenNeeds(true)
         }else if(activeProspectCard === 'Career'){
-          setOpenCareer(true)
+          router.push('/dashboard/barns/tabpages/careerpages')
         }
       }
     },[activeProspectCard])
@@ -100,7 +96,7 @@ const Overview = () => {
                 <p className='font-bold border border-[#F2F1F1] rounded-[8px] px-2'> SGD 250,000.00  LTV</p>
                 <p className='text-xs'>Last Interaction: <span className='font-bold'>1 day ago</span></p>
                 <p className='text-xs'>Last Updated: <span className='font-bold'>Today</span></p>
-                <p onClick={()=>setOpenProfile(true)} className='text-xs underline'>Profile History</p>
+                <p onClick={()=>{}} className='text-xs underline'>Profile History</p>
               </div>
 
             </div>
@@ -115,11 +111,15 @@ const Overview = () => {
                     ProfileCategoryCardData.map((item, index) => (
                         <ProfileCategoryCard
                             key={index}
+                            status={item.status}
                             title={item.title}
                             imageUrl={item.imageUrl}
                             isActive={item.title === activeProspectCard}
                             handleClick={() => {
-                                setActiveProspectCard(item.title);
+                                if(item.status === 'active' && !item.isActive){
+                                  setActiveProspectCard(item.title);
+                                }
+                                
                             }}
                         />
                     ))
@@ -184,7 +184,7 @@ const Overview = () => {
       {/* } */}
 
 
-      <ProfileHistoryModal
+      {/* <ProfileHistoryModal
         open={openProfile}
         onOpenChange={setOpenProfile}
       />
@@ -196,7 +196,7 @@ const Overview = () => {
       <Careers
         open={openCareer}
         onOpenChange={setOpenCareer}
-      />
+      /> */}
     </>
 
   )
@@ -206,24 +206,28 @@ export default Overview
 
 const ProfileCategoryCardData = [
   {
+    status: 'active',
     title: "Demographic",
     imageUrl: "/icons/cat1.png",
     content: '',
-    isActive: true,
+    isActive: false,
   },
   {
+    status: 'active',
     title: "Career",
     imageUrl: "/icons/cat1.png",
     content: '',
-    isActive: true,
+    isActive: false,
   },
   {
+    status: 'inactive',
     title: "Finance",
     imageUrl: "/icons/cat2.png",
 
     isActive: false,
   },
   {
+    status: 'inactive',
     title: "Needs",
     content: <Needs/>,
     imageUrl: "/icons/cat3.png",
@@ -231,21 +235,25 @@ const ProfileCategoryCardData = [
   },
   {
 
+    status: 'inactive',
     title: "Network",
     imageUrl: "/icons/cat4.png",
     isActive: false,
   },
   {
+    status: 'inactive',
     title: "Media",
     imageUrl: "/icons/cat5.png",
     isActive: false,
   } ,
   {
+    status: 'inactive',
     title: "Files",
     imageUrl: "/icons/cat6.png",
     isActive: false,
   },
   {
+    status: 'inactive',
     title: "Others",
     imageUrl: "/icons/cat6.png",
     isActive: false,

@@ -1,6 +1,8 @@
+'use client'
+
+import React from "react";
 import { FormInput } from "@/components/common/FormInput"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@/components/ui/dialog"
 import { ArrowLeft } from "lucide-react"
 import { Formik, Form } from "formik"
 import { z } from "zod"
@@ -15,23 +17,16 @@ const passwordSchema = z.object({
   path: ["confirmPassword"],
 })
 
-function PasswordModal({
-  open,
-  onOpenChange,
-}: {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}) {
+function Password() {
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
+      <div className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
         {/* Header */}
-        <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
+        <div className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
-            <ArrowLeft onClick={() => onOpenChange(false)} className="cursor-pointer" />
+            <ArrowLeft onClick={() => {}} className="cursor-pointer" />
             <h3 className="text-sm font-semibold">Password</h3>
           </div>
-        </DialogHeader>
+        </div>
 
         <div className="p-6 space-y-4 overflow-y-auto">
 
@@ -48,7 +43,7 @@ function PasswordModal({
             validationSchema={toFormikValidationSchema(passwordSchema)}
             onSubmit={(values) => {
               console.log("Profile submitted:", values)
-              onOpenChange(false)
+              
             }}
           >
             {({ values,
@@ -88,18 +83,17 @@ function PasswordModal({
                   // error={touched.confirmPassword && errors.confirmPassword ? errors.confirmPassword : undefined}
                 />
 
-                <DialogFooter className="flex justify-end space-x-2">
+                <div className="flex justify-end space-x-2">
                   <Button className="text-white rounded-[8px]" type="submit">
                     Update Password
                   </Button>
-                </DialogFooter>
+                </div>
               </Form>
             )}
           </Formik>
         </div>
-      </DialogContent>
-    </Dialog>
+      </div>
   )
 }
 
-export default PasswordModal
+export default Password

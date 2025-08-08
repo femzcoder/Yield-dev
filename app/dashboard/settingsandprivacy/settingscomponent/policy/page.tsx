@@ -1,27 +1,20 @@
-
-import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog"
+'use client'
+import React from "react";
 import { ArrowLeft, X } from "lucide-react"
 import { BasicCard2 } from "@/components/Cards"
 import Image from "next/image"
 
 
-function PolicyModal({
-  open,
-  onOpenChange,
-}: {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}) {
+function PolicyModal() {
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
+      <div className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
         {/* Header */}
-        <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
+        <div className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
-            <ArrowLeft onClick={() => onOpenChange(false)} className="cursor-pointer" />
+            <ArrowLeft onClick={() => {}} className="cursor-pointer" />
             <h3 className="text-sm font-semibold">Policy</h3>
           </div>
-        </DialogHeader>
+        </div>
 
         <div className="p-6 space-y-4 overflow-y-auto">
 
@@ -50,8 +43,7 @@ function PolicyModal({
             </BasicCard2>
          </div>
         </div>
-      </DialogContent>
-    </Dialog>
+      </div>
   )
 }
 

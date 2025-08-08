@@ -3,11 +3,11 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
 import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
 import { ChevronDown } from 'lucide-react'
-import Demographic from '@/app/dashboard/barns/tabpages/profilepages/demographic'
 
 
 const QuickAdd = () => {
   const [openDemographic, setOpenDemographic] = useState(false)
+  console.log(openDemographic)
   return (
     <div>
               <DropdownMenu>
@@ -39,12 +39,6 @@ const QuickAdd = () => {
                   </DropdownMenuGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
-
-      <Demographic
-        create={true}
-        open={openDemographic}
-        onOpenChange={setOpenDemographic}
-      />
     </div>
   )
 }

@@ -1,17 +1,16 @@
 import React, { ReactNode, useState } from 'react'
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from '@/components/ui/separator'
 import { ChevronRight, LogOut, SettingsIcon } from 'lucide-react'
 import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 // import { useParams } from 'next/navigation'
-
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 
 const UserIcon = () => {
     //   const params = useParams()
@@ -35,32 +34,31 @@ const UserIcon = () => {
         setActiveProfile(fullname);
     };
   return (
-    <NavigationMenu viewport={false}>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-            <NavigationMenuTrigger className='bg-transparent'>
+
+        <Popover>
+          <PopoverTrigger >
+            <Button variant={'ghost'}>
                 <div className="flex-1 primary-button-background rounded-full p-1">
                     <Avatar>
                         <AvatarImage src="https://github.com/shadcn.png" />
                         <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
-                </div>                 
-
-            </NavigationMenuTrigger>
-
-          <NavigationMenuContent className='border-none bg-[#E7E5E4] shadow-lg w-full'>
-            <ul className="bg-[#FAFAF9] grid gap-2 w-[300px] md:w-[400px]">
-                <div className='flex justify-between items-center'>
+                </div>     
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className='border-none bg-[#E7E5E4] shadow-lg w-full lg:w-[500px] !p-1'>
+         <ul className="bg-[#FAFAF9] grid gap-2 w-full md:w-[400px]">
+                <div className='grid grid-cols-4'>
                     {
                         profileList.map((profile, index) => (
                             <li key={index} className="flex flex-col items-center gap-2 p-2 hover:bg-[#D6D3D1] cursor-pointer" onClick={() => handleProfileClick(profile.fullname)}>
-                                <div className='rounded-full bg-[#EEEEEE] p-2'>
+                                <div className='rounded-full bg-[#EEEEEE] p-1 md:p-2'>
                                     <Avatar>
                                         <AvatarFallback>{profile.fullname.charAt(0)}</AvatarFallback>
                                     </Avatar>
                                 </div>
-                                <span className='font-semibold'>{profile.fullname}</span>
-                                <span className={`text-sm ${activeProfile === profile.fullname ? 'gradient-text' : ''}`}>{activeProfile === profile.fullname ? 'Active Profile' : 'Switch Profile'}</span>
+                                <span className='text-[14px] md:text-[14px] font-semibold'>{profile.fullname}</span>
+                                <span className={`text-[12px] md:text-sm ${activeProfile === profile.fullname ? 'gradient-text' : ''}`}>{activeProfile === profile.fullname ? 'Active Profile' : 'Switch Profile'}</span>
                             </li>
                         ))
                     }
@@ -96,12 +94,10 @@ const UserIcon = () => {
                     </OtherTabs>
                 </div>
             </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        </NavigationMenuList>
-        </NavigationMenu>
-  )
-}
+          </PopoverContent>
+        </Popover>
+
+)}
 
 export default UserIcon
 

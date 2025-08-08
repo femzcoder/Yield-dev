@@ -1,17 +1,13 @@
+'use client'
+
+
 import { FormInput } from "@/components/common/FormInput"
 import { TitleText } from "@/components/Typo"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@/components/ui/dialog"
 import { ArrowLeft } from "lucide-react"
-import { useState } from "react"
+import React, { useState } from "react"
 
-function ProfileModal({
-  open,
-  onOpenChange,
-}: {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}) {
+function ProfileModal() {
   const [profileData, setProfileData] = useState({
     id: "0000",
     f_name: "",
@@ -31,19 +27,17 @@ function ProfileModal({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Profile submitted:", profileData)
-    onOpenChange(false)
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-[100vw] sm:max-w-[500px] h-full sm:h-[66vh] flex flex-col bg-white border-none md:rounded-2xl p-0">
+      <div className="w-full h-full  flex flex-col bg-white border-none md:rounded-2xl p-0">
         {/* Header */}
-        <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
+        <div className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
-            <ArrowLeft onClick={() => onOpenChange(false)} className="cursor-pointer" />
+            <ArrowLeft onClick={() => {}} className="cursor-pointer" />
             <h3 className="text-sm font-semibold">Profile</h3>
           </div>
-        </DialogHeader>
+        </div>
 
         <div className="p-6 space-y-4 overflow-y-auto">
           <TitleText
@@ -104,16 +98,17 @@ function ProfileModal({
             onChange={(e) => handleChange("since", e.target.value)}
             />
 
+            <div className="flex justify-center ">
+              <div>
+                <Button className="text-white rounded-[4px]" type="submit">
+                  Invite a Friend
+                </Button>
+              </div>              
+            </div>
 
-            <DialogFooter>
-              <Button className="text-white " type="submit">
-                Invite a Friend
-              </Button>
-            </DialogFooter>
           </form>
         </div>
-      </DialogContent>
-    </Dialog>
+      </div>
   )
 }
 

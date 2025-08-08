@@ -5,6 +5,7 @@ import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import InstallModal from "../InstallButon";
 import { usePWADetect } from "@/lib/hooks/usePWADetection";
+import TabBar from "./TabBar";
 
 const DashboardLayoutProvider = ({ children }: { children: React.ReactNode }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -34,6 +35,7 @@ const DashboardLayoutProvider = ({ children }: { children: React.ReactNode }) =>
           <div className="py-6 overflow-y-auto overflow-x-hidden mt-[36px] relative pb-6 ">
             {children}
           </div>
+          <TabBar/>
         </div>
       </div>
 

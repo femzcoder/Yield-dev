@@ -20,12 +20,12 @@ import ContactInformation from "./demograph-content/ContactInformation"
 import CitizenInformation from "./demograph-content/CitizenInformation"
 // import EducationInformation from "../../careerpages/career-content/EducationInformation"
 import { ProfileFormValues } from "@/lib/types"
-import { Dialog, DialogContent,  DialogFooter,  DialogHeader } from "@/components/ui/dialog"
 import { ArrowLeft } from "lucide-react"
 import { TitleText } from "@/components/Typo"
 import { useEffect, useState } from "react"
 import SuccessModal from "@/components/common/modals/SuccessModals"
 import HealthInformation from "./demograph-content/HealthInformation"
+import { useRouter } from "next/navigation"
 
 type FormValues = {
   occupation: string
@@ -39,21 +39,11 @@ type FormValues = {
   degree: string
 }
 
-const Demographic = (
-  {
-  open,
-  onOpenChange,
-  create=false
-
-}: {
-  open: boolean
-  create:boolean
-  onOpenChange: (open: boolean) => void
-}
-) => {
+const Demographic = () => {
+  const router =  useRouter()
     const [isPreview, setIsPreview] = useState<boolean>(false);
     const [isSuccessful, setIsSuccessful]= useState(false)
-    const [isCreate, setIsCreate]= useState(create)
+    const [isCreate, setIsCreate]= useState(true)
     const [selectedValue, setSelectedValue] = useState('')
   const {
     register,
@@ -90,7 +80,6 @@ const Demographic = (
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log("Form Submitted:", data)
     setIsSuccessful(true)
-    onOpenChange(false)
   }
 
   useEffect(()=>{
@@ -129,15 +118,14 @@ const Demographic = (
 
   return (
     <>
-      <Dialog open={open} onOpenChange={onOpenChange} >
-        <DialogContent className=" flex flex-col bg-white border-none md:rounded-2xl p-0 md:max-h-[80vh] sm:max-w-[70%] w-full h-full">
+        <div className=" flex flex-col bg-white border-none md:rounded-2xl p-0 md:max-h-[85vh] w-full h-full">
           {/* Header */}
-          <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
+          <div className="bg-[#FAFAF9] shadow-xl py-2">
             <div className="flex items-center gap-1 px-4">
-              <ArrowLeft onClick={() => onOpenChange(false)} className="cursor-pointer" />
+              <ArrowLeft onClick={() => router.back()} className="cursor-pointer" />
               <h3 className="text-sm font-semibold">{isCreate? 'Create' : 'Demographic'}</h3>
             </div>
-          </DialogHeader>
+          </div>
 
           { isCreate ?
             <div className="p-10 space-y-1">
@@ -195,7 +183,7 @@ const Demographic = (
 
               {/* <Button type="submit">Submit</Button> */}
 
-              <DialogFooter className="w-full absolute bottom-0 bg-white p-2">
+              <div className="w-full absolute bottom-0 bg-white p-2">
                       {!isPreview ? (
                         <Button
                           className="rounded-[8px] text-white"
@@ -219,16 +207,15 @@ const Demographic = (
                           </Button>
                         </div>
                       )}
-              </DialogFooter>
+              </div>
 
             </form>              
             </>
           }
 
         
-        </DialogContent>
-
-      </Dialog>    
+        </div>
+   
       <SuccessModal
         open={isSuccessful}
         onOpenChange={setIsSuccessful}

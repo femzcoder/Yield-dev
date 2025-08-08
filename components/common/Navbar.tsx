@@ -17,8 +17,8 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
   const chatbot = useChatbot();
 
   return (
-    <div className="flex fixed w-full lg:w-[86%] 2xl:w-[90%] items-center justify-between bg-base-100 shadow-sm px-6 py-2 bg-[#fff] border-[#D6D3D1] border-b z-[45]">
-      <div className='flex items-center space-x-1'>
+    <div className="flex fixed w-full lg:w-[86%] 2xl:w-[90%] items-center justify-between bg-base-100 shadow-sm px-3 md:px-6 py-2 bg-[#fff] border-[#D6D3D1] border-b z-[45]">
+      <div className='flex items-center'>
         <div className="flex-none ">
             <button onClick={toggleSidebar} className="btn btn-square btn-ghost lg:hidden border border-[#D6D3D1] rounded-full p-[6px]">
               <Image

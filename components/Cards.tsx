@@ -70,9 +70,9 @@ export const EmptyState = () => {
   );
 }
 
-export const ProfileCategoryCard = ({ title, imageUrl, isActive, handleClick }: { title: string, imageUrl: string, isActive: boolean, handleClick: () => void }) => {
+export const ProfileCategoryCard = ({ title, imageUrl, isActive, status, handleClick }: { title: string, imageUrl: string, status:string, isActive: boolean, handleClick: () => void }) => {
   return (
-    <div className={`bg-white shadow-md rounded-[8px] px-4 relative py-3 flex items-center gap-4 ${isActive ? 'border-2 border-[#C58B18]' : ''}`} onClick={handleClick}>
+    <div className={`bg-white shadow-md rounded-[8px] px-4 relative py-3 flex items-center gap-4 ${isActive ? 'border-2 border-[#C58B18]' : ''} ${status === 'inactive' && 'opacity-60'}`} onClick={handleClick}>
       {
         isActive && <div className="absolute top-3 right-3 primary-button-background w-[7px] h-[7px] rounded-full"></div>
       }

@@ -2,47 +2,40 @@
 
 import { ChevronRight} from 'lucide-react'
 import Image from 'next/image'
-import React, { useState } from 'react'
-import ParticularsModal from './settingscomponent/ParticularsModal'
-import PasswordModal from './settingscomponent/PasswordModal'
-import PolicyModal from './settingscomponent/PolicyModal'
-import SubscriptionModal from './settingscomponent/SubscriptionModal'
+import React from 'react'
 import UserProfileDetails from '@/components/UserProfileDetails'
-import ProfileModal from './settingscomponent/ProfileModal'
+import { useRouter } from 'next/navigation'
 
 const SettingsAndPrivacy = () => {
 
-    const [openProfile, setOpenProfile] = useState<boolean>(false)
-    const [openParticulars, setOpenParticulars] = useState<boolean>(false)
-    const [openPassword, setOpenPassword] = useState<boolean>(false)
-    const [openPolicy, setOpenPolicy] = useState<boolean>(false)
-    const [openSubscription, setOpenSubscription] = useState<boolean>(false)
+    const router = useRouter()
+    const settingUrl ='/dashboard/settingsandprivacy/settingscomponent'
 
     const settingsOptions=[
         {
             icon:"/icons/Iconssp1.svg",
             title:'Profile',
-            handleClick:()=>{setOpenProfile(true)}
+            handleClick:()=>{router.push(`${settingUrl}/profile`)}
         },
         {
             icon:"/icons/Iconssp2.svg",
             title:'Particulars',
-            handleClick:()=>{setOpenParticulars(true)}
+            handleClick:()=>{router.push(`${settingUrl}/particulars`)}
         },
         {
             icon:"/icons/Iconssp3.svg",
             title:'Subscriptions',
-            handleClick:()=>{setOpenSubscription(true)}
+            handleClick:()=>{router.push(`${settingUrl}/subscription`)}
         },
         {
             icon:"/icons/Vectorsp4.svg",
             title:'Password',
-            handleClick:()=>{setOpenPassword(true) }
+            handleClick:()=>{router.push(`${settingUrl}/password`)}
         },
         {
             icon:"/icons/Iconssp5.svg",
             title:'Policies',
-            handleClick:()=>{setOpenPolicy(true)}
+            handleClick:()=>{router.push(`${settingUrl}/policy`)}
         }
     ]
 
@@ -75,26 +68,6 @@ const SettingsAndPrivacy = () => {
             </div>
         </div>    
 
-        <ProfileModal
-            onOpenChange={setOpenProfile}
-            open={openProfile}
-        />
-        <ParticularsModal
-            onOpenChange={setOpenParticulars}
-            open={openParticulars}
-        />
-        <PasswordModal
-            onOpenChange={setOpenPassword}
-            open={openPassword}
-        />
-        <PolicyModal
-            onOpenChange={setOpenPolicy}
-            open={openPolicy}
-        />
-        <SubscriptionModal
-            onOpenChange={setOpenSubscription}
-            open={openSubscription}
-        />
     </>
 
     // </AssistantContainer>

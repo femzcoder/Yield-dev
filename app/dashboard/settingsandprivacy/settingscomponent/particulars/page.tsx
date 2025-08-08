@@ -1,24 +1,31 @@
-import { FormInput } from "@/components/common/FormInput"
+'use client'
+
+import { FormInput, FormPhoneInput } from "@/components/common/FormInput"
 import { TitleText } from "@/components/Typo"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent,  DialogFooter,  DialogHeader } from "@/components/ui/dialog"
 import { ArrowLeft } from "lucide-react"
-import { useState } from "react"
+import React, { useState } from "react"
 
-function SubscriptionModal({
-  open,
-  onOpenChange,
-}: {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}) {
-  const [profileData, setProfileData] = useState({
+
+function ParticularsModal() {
+  const [profileData, setProfileData] = useState<{
+    id: string
+    phone: string 
+    alt_phone: string
+    email: string
+    alt_email: string
+    f_name: string
+    l_name: string
+    d_name: string
+    bio: string
+    since: string
+  }>({
     id: "0000",
     phone: "",
-    alt_phone:'',
+    alt_phone: "",
     email: "",
-    alt_email: "", 
+    alt_email: "",
     f_name: "",
     l_name: "",
     d_name: "",
@@ -40,19 +47,18 @@ function SubscriptionModal({
   // }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
+      <div className=" flex flex-col bg-white border-none rounded-2xl p-0">
         {/* Header */}
-        <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
+        <div className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
-            <ArrowLeft onClick={() => onOpenChange(false)} className="cursor-pointer" />
-            <h3 className="text-sm font-semibold">Subscriptions</h3>
+            <ArrowLeft onClick={() =>{}} className="cursor-pointer" />
+            <h3 className="text-sm font-semibold">Profile</h3>
           </div>
-        </DialogHeader>
+        </div>
 
         <div className="p-6 space-y-4 overflow-y-auto">
           <TitleText
-            text="View your subscription plan & payment method below."
+            text="Control what your community sees"
             style="text-[#2D2D2D] text-lg font-medium"
           />
 
@@ -65,50 +71,39 @@ function SubscriptionModal({
                 <AccordionItem className="border-none space-y-3" value={`item-1`}>
                   <AccordionTrigger className="border shadow-lg border-[#F2F1F1] rounded-[12px] px-3">
                     <div>
-                      <p>Plan Details</p>
+                      <p>Contact Information</p>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col gap-4 text-balance px-4">
+                    <FormPhoneInput
+                      label="Primary Phone Number"
+                      name="phone"
+                      value={profileData.phone}
+                      onChange={(value) => handleChange("phone", value || "")}
+                      placeholder="Enter phone number"
+                    />
+
+                    <FormPhoneInput
+                      label="Alternate Phone Number"
+                      name="alt_phone"
+                      value={profileData.alt_phone || ''}
+                      onChange={(value) => handleChange("alt_phone", value || "")}
+                      placeholder="Enter alternate phone number"
+                    />
+
+
                       <FormInput
                       name="l_name"
-                      type="text"
-                      label="Plan Name"
-                      value={profileData.email}
-                      onChange={(e) => handleChange("l_name", e.target.value)}
-                      />
-                      <FormInput
-                      name="l_name"
-                      type="text"
-                      label="Plan Effective Period"
-                      value={profileData.email}
-                      onChange={(e) => handleChange("l_name", e.target.value)}
-                      />
-                      <FormInput
-                      name="l_name"
-                      type="text"
-                      label="Plan Status"
-                      value={profileData.email}
-                      onChange={(e) => handleChange("l_name", e.target.value)}
-                      />
-                      <FormInput
-                      name="l_name"
-                      type="text"
-                      label="Plan Type"
-                      value={profileData.email}
-                      onChange={(e) => handleChange("l_name", e.target.value)}
-                      />
-                      <FormInput
-                      name="l_name"
-                      type="text"
-                      label="Plan Location"
+                      type="email"
+                      label="Primary Email"
                       value={profileData.email}
                       onChange={(e) => handleChange("l_name", e.target.value)}
                       />
 
                       <FormInput
                       name="d_name"
-                      type="text"
-                      label="Plan Price"
+                      type="email"
+                      label="Alternate Email"
                       value={profileData.alt_email}
                       onChange={(e) => handleChange("d_name", e.target.value)}
                       />
@@ -120,35 +115,14 @@ function SubscriptionModal({
                 <AccordionItem className="border-none space-y-3" value={`item-2`}>
                   <AccordionTrigger className="border shadow-lg border-[#F2F1F1] rounded-[12px] px-3">
                     <div>
-                      <p>Payment Details</p>
+                      <p>Professional Information</p>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col gap-4 text-balance px-4">
                       <FormInput
                       name="id"
                       type="text"
-                      label="Last Payment Amount"
-                      value={profileData.id}
-                      disabled={true}
-                      />
-                      <FormInput
-                      name="id"
-                      type="text"
-                      label="Last Payment Date"
-                      value={profileData.id}
-                      disabled={true}
-                      />
-                      <FormInput
-                      name="id"
-                      type="text"
-                      label="Next Payment Amount"
-                      value={profileData.id}
-                      disabled={true}
-                      />
-                      <FormInput
-                      name="id"
-                      type="text"
-                      label="Next Payment Date"
+                      label="Employment Type"
                       value={profileData.id}
                       disabled={true}
                       />
@@ -156,7 +130,7 @@ function SubscriptionModal({
                       <FormInput
                       name="f_name"
                       type="text"
-                      label="Payment Mode"
+                      label="License Number"
                       value={profileData.f_name}
                       onChange={(e) => handleChange("f_name", e.target.value)}
                       />
@@ -164,7 +138,7 @@ function SubscriptionModal({
                       <FormInput
                       name="l_name"
                       type="text"
-                      label="Payment Method"
+                      label="Company"
                       value={profileData.l_name}
                       onChange={(e) => handleChange("l_name", e.target.value)}
                       />
@@ -172,11 +146,18 @@ function SubscriptionModal({
                       <FormInput
                       name="d_name"
                       type="text"
-                      label="Bank Account Number"
+                      label="Title"
                       value={profileData.d_name}
                       onChange={(e) => handleChange("d_name", e.target.value)}
                       />
 
+                      <FormInput
+                      name="bio"
+                      type="text"
+                      label="Department"
+                      value={profileData.bio}
+                      onChange={(e) => handleChange("bio", e.target.value)}
+                      />
 
 
 
@@ -188,18 +169,20 @@ function SubscriptionModal({
    
           </form> */}
 
-            <DialogFooter>
+            <div>
+              <div className="flex justify-between items-center w-full">
+                <Button type="button" variant={'secondary'}>Cancel</Button>
 
                 <Button className="text-white rounded-[8px]" type="submit">
-                  Upgrade
+                  Update Profile
                 </Button>
+              </div>
 
-            </DialogFooter>
+            </div>
 
         </div>
-      </DialogContent>
-    </Dialog>
+      </div>
   )
 }
 
-export default SubscriptionModal
+export default ParticularsModal
