@@ -30,7 +30,7 @@ const SuccessModal = (
             width={40}
             height={40}
           />
-          <TitleText text={title} style="text-[#2D2D2D] text-sm font-medium"/>
+          <TitleText text={`${title}`} style="text-[#2D2D2D] text-sm font-medium"/>
         </div>
 
       </DialogContent>
