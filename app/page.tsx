@@ -1,33 +1,27 @@
-import { auth0 } from "@/lib/auth0";
-import './globals.css';
+'use client'
 
-export default async function Home() {
-  // Fetch the user session
-  const session = await auth0.getSession();
+// import { auth0 } from '@/lib/auth0';
+import { redirect } from 'next/navigation'
 
-  // If no session, show sign-up and login buttons
-  if (!session) {
-    return (
-      <main>
-        <a href="/auth/login?screen_hint=signup">
-          <button>Sign up</button>
-        </a>
-        <a href="/auth/login">
-          <button>Log in</button>
-        </a>
-      </main>
-    );
-  }
-
-  // If session exists, show a welcome message and logout button
+const MainPage = async () => {
+  // const session = await auth0.getSession();
+  // if (!session) {
+  //   return (
+  //     <main>
+  //       <a href="/auth/login?screen_hint=signup">
+  //         <button>Sign up</button>
+  //       </a>
+  //       <a href="/auth/login">
+  //         <button>Log in</button>
+  //       </a>
+  //     </main>
+  //   );
+  // }
+    // const params = useParams()
+    // const currentLang = params?.locale as string;
   return (
-    <main>
-      <h1>Welcome, {session.user.name}!</h1>
-      <p>
-        <a href="/auth/logout">
-          <button>Log out</button>
-        </a>
-      </p>
-    </main>
-  );
+    redirect(`/login`)
+  )
 }
+
+export default MainPage

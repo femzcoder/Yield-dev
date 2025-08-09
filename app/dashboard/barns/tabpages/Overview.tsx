@@ -36,7 +36,7 @@ const Overview = () => {
           router.push('/dashboard/barns/tabpages/careerpages')
         }
       }
-    },[activeProspectCard])
+    },[activeProspectCard, router])
 
   return (
     <>

@@ -7,6 +7,7 @@ import { useChatbot } from '../chatbot/Chatbot';
 import UserIcon from './navbarElements/UserIcon';
 import ActivityLog from './navbarElements/ActivityLog';
 import { NotificationPopover } from './navbarElements/Notification';
+import SubscribeButton from '../EnablePushButton';
 
 
 interface NavbarProps {
@@ -37,6 +38,7 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
       </div>
 
         <div className="flex items-center gap-2">
+            <SubscribeButton/>
             {/* <NavbarButton type='button' handleClick={() => console.log("Search clicked")} iconUrl={"/icons/searchIcon.png"} /> */}
             <ActivityLog/>
             <NotificationPopover/>

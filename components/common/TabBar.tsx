@@ -9,7 +9,7 @@ const TabBar = () => {
             TabBarItem.map((item) => (
                 <Link href={`/dashboard/${item.id}`} key={item.id} className="no-underline">
                     <div className={`flex flex-col items-center gap-2 p-2 rounded-lg cursor-pointer `}>
-                        <Image src={item.icon} alt={item.label} className="w-6 h-6" />
+                        <Image src={item.icon} alt={item.label} width={24} height={24} className="w-6 h-6" />
                         <span className='gradient-text'>{item.label}</span>
                     </div>                
                 </Link>
