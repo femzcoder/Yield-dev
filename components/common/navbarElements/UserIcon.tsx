@@ -46,7 +46,7 @@ const UserIcon = () => {
                 </div>     
             </Button>
           </PopoverTrigger>
-          <PopoverContent className='border-none bg-[#E7E5E4] shadow-lg w-full lg:w-[500px] !p-1'>
+          <PopoverContent className='border-none bg-[#E7E5E4] shadow-lg w-full lg:w-[500px] !p-1 md:p-3'>
          <ul className="bg-[#FAFAF9] grid gap-2 w-full md:w-[400px]">
                 <div className='grid grid-cols-4'>
                     {
