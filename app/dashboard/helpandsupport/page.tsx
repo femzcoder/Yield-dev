@@ -2,7 +2,7 @@
 
 import { ChevronRight} from 'lucide-react'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
 import { BasicCard2 } from '@/components/Cards'
 import UserProfileDetails from '@/components/UserProfileDetails'
 import { useRouter } from 'next/navigation'
