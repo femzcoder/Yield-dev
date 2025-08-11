@@ -4,28 +4,29 @@ import { ChevronRight} from 'lucide-react'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { BasicCard2 } from '@/components/Cards'
-import ResorcesModal from './helpcomponent/Resources'
-import FeedbackModal from './helpcomponent/FeedbackModal'
 import UserProfileDetails from '@/components/UserProfileDetails'
+import { useRouter } from 'next/navigation'
 
 const SettingsAndPrivacy = () => {
-    const [openResource, setOpenResource] = useState(false)
-    const [openFeedback, setOpenFeedback] = useState(false)
+    const router = useRouter()
+    const settingUrl ='/dashboard/helpandsupport/helpcomponent'
 
 
     const settingsOptions=[
         {
             icon:"/icons/Iconssp1.svg",
             title:'Resources',
-            handleClick:()=>{setOpenResource(true)}
+            handleClick:()=>{router.push(`${settingUrl}/feedack`)}
         },
         {
             icon:"/icons/Iconssp2.svg",
             title:'Feedback',
-            handleClick:()=>{setOpenFeedback(true)}
+            handleClick:()=>{router.push(`${settingUrl}/resource`)}
         },
 
     ]
+
+
 
   return (
     // <AssistantContainer>
@@ -113,14 +114,6 @@ const SettingsAndPrivacy = () => {
             </div>
         </div>    
 
-            <ResorcesModal
-                onOpenChange={setOpenResource}
-                open={openResource}
-            />
-            <FeedbackModal
-                onOpenChange={setOpenFeedback}
-                open={openFeedback}
-            />
 
     </>
 

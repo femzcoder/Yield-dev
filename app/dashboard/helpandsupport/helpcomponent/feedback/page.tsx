@@ -3,17 +3,10 @@ import { FormSelect, FormTextArea } from "@/components/common/FormInput"
 import { FileUpload } from "@/components/FileUpload"
 import { TitleText } from "@/components/Typo"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent,  DialogFooter,  DialogHeader } from "@/components/ui/dialog"
 import { ArrowLeft } from "lucide-react"
 import { useState } from "react"
 
-function FeedbackModal({
-  open,
-  onOpenChange,
-}: {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}) {
+function Feedback() {
   const [profileData, setProfileData] = useState({
     feedbackType: "",
     description: "",
@@ -36,19 +29,17 @@ function FeedbackModal({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Profile submitted:", profileData)
-    onOpenChange(false)
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
+      <div className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
         {/* Header */}
-        <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
+        <div className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
-            <ArrowLeft onClick={() => onOpenChange(false)} className="cursor-pointer" />
+            <ArrowLeft onClick={() =>{}} className="cursor-pointer" />
             <h3 className="text-sm font-semibold">Feedback</h3>
           </div>
-        </DialogHeader>
+        </div>
 
         <div className="p-6 space-y-4 overflow-y-auto">
 
@@ -105,19 +96,18 @@ function FeedbackModal({
             </div>
 
 
-            <DialogFooter>
+            <div>
                 <div className='w-full'>
                     <Button className="text-white w-full rounded-[8px]" type="submit">
                         Send Email
                     </Button>                    
                 </div>
 
-            </DialogFooter>
+            </div>
           </form> 
         </div>
-      </DialogContent>
-    </Dialog>
+      </div>
   )
 }
 
-export default FeedbackModal
+export default Feedback
