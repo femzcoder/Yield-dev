@@ -42,15 +42,15 @@ const SettingsAndPrivacy = () => {
   return (
     // <AssistantContainer>
     <>
-        <div className='p-6 space-y-2'>
+        <div className='px-2 py-6 md:p-6 space-y-2'>
             <span className='text-[#2D2D2D] mb-4'>Settings & Privacy</span>
 
             <UserProfileDetails />
 
-            <div className='p-2 rounded-[8px] space-y-4'>
+            <div className='py-2 rounded-[8px] space-y-4'>
                 {
                     settingsOptions.map((setting, index) => (
-                        <div onClick={setting.handleClick} key={index} className='flex bg-white justify-between items-center  rounded-[8px] p-1 hover:bg-[#F2F1F1] cursor-pointer'>
+                        <div onClick={setting.handleClick} key={index} className='flex bg-white justify-between items-center  rounded-[8px] p-2 hover:bg-[#F2F1F1] cursor-pointer'>
                             <div className='flex items-center gap-2'>
                                <Image
                                     src= {setting.icon}

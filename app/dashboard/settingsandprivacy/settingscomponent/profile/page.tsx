@@ -5,9 +5,11 @@ import { FormInput } from "@/components/common/FormInput"
 import { TitleText } from "@/components/Typo"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
+import { useRouter } from "next/navigation"
 import React, { useState } from "react"
 
 function ProfileModal() {
+  const router = useRouter()  
   const [profileData, setProfileData] = useState({
     id: "0000",
     f_name: "",
@@ -34,7 +36,7 @@ function ProfileModal() {
         {/* Header */}
         <div className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
-            <ArrowLeft onClick={() => {}} className="cursor-pointer" />
+            <ArrowLeft onClick={() => {router.back()}} className="cursor-pointer" />
             <h3 className="text-sm font-semibold">Profile</h3>
           </div>
         </div>
