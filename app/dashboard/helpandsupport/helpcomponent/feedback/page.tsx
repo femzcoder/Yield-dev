@@ -1,3 +1,4 @@
+'use client'
 
 import { FormSelect, FormTextArea } from "@/components/common/FormInput"
 import { FileUpload } from "@/components/FileUpload"
