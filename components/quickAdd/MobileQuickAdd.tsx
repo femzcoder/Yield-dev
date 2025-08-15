@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 const MobileQuickAdd = () => {
   const [open, setOpen] = useState(false)
   return (
-    <div style={{backgroundColor:`${open &&'rgba(0,0,0,0.5)'}`}} className={`fixed bottom-10 right-0 z-50  ${open && 'h-screen w-full'}`}>
+    <div style={{backgroundColor:`${open &&'rgba(0,0,0,0.5)'}`}} className={`lg:hidden fixed bottom-10 right-0 z-50  ${open && 'h-screen w-full'}`}>
 
       {open && 
         <div className='absolute bottom-20 right-2 space-y-2'>
