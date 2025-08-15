@@ -1,0 +1,26 @@
+# AWS Amplify redirects for Next.js with internationalization
+
+# Redirect root to default locale
+/  /en  302
+
+# Handle locale-specific routes
+/en/*  /en/:splat  200
+/fr/*  /fr/:splat  200
+/de/*  /de/:splat  200
+
+# Handle API routes
+/api/*  /api/:splat  200
+
+# Handle Next.js static files
+/_next/*  /_next/:splat  200
+
+# Handle public assets
+/icons/*  /icons/:splat  200
+/images/*  /images/:splat  200
+/fonts/*  /fonts/:splat  200
+
+# Fallback for SPA routing - redirect all unmatched routes to index with locale
+/*  /en/:splat  200
+
+# 404 fallback
+/404  /en/404  200

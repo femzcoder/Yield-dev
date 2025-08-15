@@ -1,15 +1,5 @@
-'use client'
+"use client"
 
-<<<<<<< HEAD:app/[locale]/page.tsx
-import { redirect, useParams } from 'next/navigation'
-
-const page = () => {
-    const params = useParams()
-    const currentLang = params?.locale as string;
-  return (
-    redirect(`/${currentLang}/login`)
-  )
-=======
 import { BasicCard } from "@/components/Cards";
 import { Grid2Container } from "@/components/Container";
 import CustomSlider from "@/components/CustomSlider";
@@ -18,22 +8,8 @@ import { LinkText, TitleText } from "@/components/Typo";
 import { TrendingCardData } from "@/lib/data";
 import { Plus } from "lucide-react";
 import Image from "next/image";
-import { useEffect } from "react";
-import OneSignal from "react-onesignal";
 
 export default function HomePage() {
-    useEffect(() => {
-    // Ensure this code runs only on the client side
-    if (typeof window !== 'undefined') {
-      OneSignal.init({
-        appId: '918b727b-88b7-4c2d-894e-d198d84678b0',
-        // You can add other initialization options here
-        // notifyButton: {
-        //   enable: true,
-        // }
-      });
-    }
-  }, []);
   // const t = await getTranslations("HomePage");
   return (
     <div className="p-4 space-y-6">
@@ -54,7 +30,7 @@ export default function HomePage() {
             <span className="text-[12px]">You are <span className="text-[#009F2B]">+4%</span> up from last year</span>
 
             <div className="flex items-center gap-2">
-              <LinkText text="See More" style="text-[12px]" linkUrl="/dashboard"/>
+              <LinkText text="See More" style="text-[12px]" linkUrl="/"/>
               <Image src="/icons/see-more.png" alt="Arrow Right Icon" width={12} height={12} className="inline-block ml-1" />
             </div>
             
@@ -85,7 +61,27 @@ export default function HomePage() {
     </div>
 
   );
->>>>>>> 5ac0a3352530d53b2dc02ade017b2a985d30b6bd:app/dashboard/page.tsx
 }
 
-export default page
+const sideKicksData = [
+  {
+    name: "Christina",
+    image:"/icons/userIcon.png"
+  },
+  {
+    name: "Patrick",
+    image:"/icons/userIcon.png"
+  },
+  {
+    name: "Gabriel",
+    image:"/icons/userIcon.png"
+  },
+  {
+    name: "Joe",
+    image:"/icons/userIcon.png"
+  },
+  {
+    name: "Myra",
+    image:"/icons/userIcon.png"
+  }
+]

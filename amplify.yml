@@ -1,0 +1,189 @@
+# ============================================================================
+# AWS Amplify Build Configuration
+# ============================================================================
+# 
+# Purpose: Defines the build process, caching strategy, and deployment 
+#          configuration for the Next.js application on AWS Amplify
+#
+# Last Modified: 2025-07-17
+# Modified By: Development Team
+# 
+# Documentation: https://docs.amplify.aws/cli/reference/files/#amplify-yml
+# Troubleshooting: See AMPLIFY_DEPLOYMENT.md in project root
+#
+# IMPORTANT: Changes to this file affect production deployments.
+#            Test thoroughly before committing changes.
+# ============================================================================
+
+version: 1
+
+frontend:
+  # ========================================================================
+  # BUILD PHASES
+  # ========================================================================
+  # Defines the sequence of commands executed during the build process
+  
+  phases:
+    # ----------------------------------------------------------------------
+    # PRE-BUILD PHASE
+    # ----------------------------------------------------------------------
+    # Commands executed before the main build process
+    # Used for dependency installation and environment setup
+    
+    preBuild:
+      commands:
+        # Install dependencies using npm ci for faster, reliable builds
+        # npm ci is preferred over npm install for production builds
+        - nvm use 20
+        - npm ci
+        
+    # ----------------------------------------------------------------------
+    # BUILD PHASE
+    # ----------------------------------------------------------------------
+    # Main build commands for the Next.js application
+    
+    build:
+      commands:
+        # Execute the Next.js build process
+        # This runs the "build" script defined in package.json
+        # Generates optimized production build in .next directory
+        - npm run build
+
+  # ========================================================================
+  # BUILD ARTIFACTS
+  # ========================================================================
+  # Specifies which files/directories to deploy to Amplify hosting
+  
+  artifacts:
+    # Base directory containing the built application
+    # .next is the standard Next.js build output directory
+    baseDirectory: .next
+    
+    # Include all files from the base directory
+    # This ensures all Next.js build artifacts are deployed
+    files:
+      - '**/*'
+
+  # ========================================================================
+  # CACHING CONFIGURATION
+  # ========================================================================
+  # Defines which directories to cache between builds for faster performance
+  # Proper caching significantly reduces build times
+  
+  cache:
+    paths:
+      # Cache node_modules to avoid reinstalling dependencies
+      # Speeds up subsequent builds when dependencies haven't changed
+      - node_modules/**/*
+      
+      # Cache Next.js build cache for incremental builds
+      # Next.js uses this for faster rebuilds of unchanged pages
+      - .next/cache/**/*
+      
+      # Cache Next.js static assets
+      # Includes optimized images, fonts, and other static resources
+      - .next/static/**/*
+
+  # ========================================================================
+  # CUSTOM HTTP HEADERS
+  # ========================================================================
+  # Defines security and performance headers for different file types
+  # These headers are applied at the CDN level for optimal performance
+  
+  customHeaders:
+    # ----------------------------------------------------------------------
+    # GLOBAL SECURITY HEADERS
+    # ----------------------------------------------------------------------
+    # Applied to all files for baseline security
+    
+    - pattern: '**/*'
+      headers:
+        # Prevents the page from being embedded in frames/iframes
+        # Protects against clickjacking attacks
+        - key: 'X-Frame-Options'
+          value: 'DENY'
+        
+        # Prevents MIME type sniffing
+        # Ensures browsers respect the declared content type
+        - key: 'X-Content-Type-Options'
+          value: 'nosniff'
+        
+        # Controls referrer information sent with requests
+        # Balances privacy with functionality
+        - key: 'Referrer-Policy'
+          value: 'strict-origin-when-cross-origin'
+
+    # ----------------------------------------------------------------------
+    # JAVASCRIPT FILE CACHING
+    # ----------------------------------------------------------------------
+    # Long-term caching for JavaScript bundles
+    # JS files are content-hashed, so they can be cached indefinitely
+    
+    - pattern: '**/*.js'
+      headers:
+        # Cache for 1 year (31536000 seconds)
+        # 'immutable' tells browsers the file will never change
+        - key: 'Cache-Control'
+          value: 'public, max-age=31536000, immutable'
+
+    # ----------------------------------------------------------------------
+    # CSS FILE CACHING
+    # ----------------------------------------------------------------------
+    # Long-term caching for CSS stylesheets
+    # CSS files are content-hashed, so they can be cached indefinitely
+    
+    - pattern: '**/*.css'
+      headers:
+        # Cache for 1 year (31536000 seconds)
+        # 'immutable' tells browsers the file will never change
+        - key: 'Cache-Control'
+          value: 'public, max-age=31536000, immutable'
+
+    # ----------------------------------------------------------------------
+    # FONT FILE CACHING (WOFF)
+    # ----------------------------------------------------------------------
+    # Long-term caching for WOFF font files
+    # Font files rarely change and benefit from aggressive caching
+    
+    - pattern: '**/*.woff'
+      headers:
+        # Cache for 1 year (31536000 seconds)
+        # Fonts are typically static and can be cached indefinitely
+        - key: 'Cache-Control'
+          value: 'public, max-age=31536000, immutable'
+
+    # ----------------------------------------------------------------------
+    # FONT FILE CACHING (WOFF2)
+    # ----------------------------------------------------------------------
+    # Long-term caching for WOFF2 font files
+    # WOFF2 is the modern, compressed font format
+    
+    - pattern: '**/*.woff2'
+      headers:
+        # Cache for 1 year (31536000 seconds)
+        # Fonts are typically static and can be cached indefinitely
+        - key: 'Cache-Control'
+          value: 'public, max-age=31536000, immutable'
+
+# ============================================================================
+# MAINTENANCE NOTES
+# ============================================================================
+#
+# When modifying this file:
+# 1. Test changes in a development branch first
+# 2. Monitor build logs in Amplify console after deployment
+# 3. Verify that caching headers are working correctly
+# 4. Update the "Last Modified" date and "Modified By" fields above
+# 5. Document significant changes in the project's CHANGELOG.md
+#
+# Common modifications:
+# - Adding new file type caching rules
+# - Adjusting cache durations
+# - Adding environment-specific build commands
+# - Modifying security headers
+#
+# For troubleshooting build issues, see:
+# - AMPLIFY_DEPLOYMENT.md in project root
+# - AWS Amplify console build logs
+# - Next.js build documentation
+# ============================================================================

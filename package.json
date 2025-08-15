@@ -8,7 +8,9 @@
     "build:en": "NEXT_PUBLIC_LOCALE=en next build",
     "build:fr": "NEXT_PUBLIC_LOCALE=fr next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "verify-amplify": "node scripts/verify-build.js",
+    "deploy:check": "npm run lint && npm run verify-amplify"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.4.0",
