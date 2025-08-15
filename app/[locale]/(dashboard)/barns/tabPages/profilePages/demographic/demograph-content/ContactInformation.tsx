@@ -5,14 +5,37 @@ import PhoneInput from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 
 type FormValues = {
+  // Personal Information
+  firstname: string
+  lastname: string
+  gender: string
+  marital_status: string
+  dob: string
+  // Contact Information
   phone: string
   email: string
   address: string
+  // Employment Information
+  occupation: string
+  employer: string
+  // Citizen Information
+  citizen_status: string
+  country: string
+  province: string
+  city: string
+  id_method: string
+  id_number: string
+  // Education Information
+  degree: string
+  languages: {
+    name: string
+    level: "basic" | "fluent"
+  }[]
 }
 
 type Props = {
   register: UseFormRegister<FormValues>
-  control: Control<FormValues>
+  control?: Control<FormValues>
   errors: FieldErrors<FormValues>
 }
 

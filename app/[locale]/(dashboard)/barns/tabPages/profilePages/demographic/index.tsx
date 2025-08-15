@@ -17,15 +17,32 @@ import CitizenInformation from "./demograph-content/CitizenInformation"
 import EducationInformation from "./demograph-content/EducationInformation"
 
 type FormValues = {
+  // Personal Information
+  firstname: string
+  lastname: string
+  gender: string
+  marital_status: string
+  dob: string
+  // Contact Information
+  phone: string
+  email: string
+  address: string
+  // Employment Information
   occupation: string
   employer: string
+  // Citizen Information
   citizen_status: string
   country: string
   province: string
   city: string
   id_method: string
   id_number: string
+  // Education Information
   degree: string
+  languages: {
+    name: string
+    level: "basic" | "fluent"
+  }[]
 }
 
 const Demographic = () => {
@@ -49,7 +66,7 @@ const Demographic = () => {
     {
       title: "Contact Information",
       date: "Created on: 17 Feb 25",
-      content: <ContactInformation register={register} errors={errors} />,
+      content: <ContactInformation register={register} control={control} errors={errors} />,
     },
     {
       title: "Citizen Information",

@@ -43,7 +43,7 @@ const Projects = () => {
         <div>
             <div className='flex justify-between items-center'>
                 <TitleText text='Commercial Insurance'/>
-                <PurpleButton iconUrl={<Plus/>} text={'Add Task'}/>
+                <PurpleButton styles={'gradient-text'} text={'Add Task'}/>
             </div>
             <div>
 

@@ -2,6 +2,8 @@
 
 import React from 'react'
 import { IdeaCard } from './Cards'
+import { SlideCardProps } from "@/lib/types";
+
 
 const CustomSlider = ({slidesData}: {slidesData: SlideCardProps[]}) => {
     const handleClick = (index: number) => {

@@ -2,7 +2,19 @@ import { Controller } from "react-hook-form"
 import { FormCheckbox } from "@/components/common/FormInput"
 import { ActionText } from "@/components/Typo"
 
-const categories = [
+// Type definitions
+interface Option {
+  label: string;
+  value: string;
+}
+
+interface Category {
+  label: string;
+  name: string;
+  options: Option[];
+}
+
+const categories: Category[] = [
   {
     label: "Wealth Accumulation",
     name: "wealthAccumulation",
@@ -26,7 +38,7 @@ const categories = [
 const ProspectNeed = ({ control, errors }: any) => {
   return (
     <div className="space-y-6">
-      {categories.map((category:any) => (
+      {categories.map((category: Category) => (
         <div key={category.name}>
           <ActionText title={category.label}/>          
 

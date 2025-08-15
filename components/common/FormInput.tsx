@@ -9,7 +9,7 @@ import 'react-phone-number-input/style.css'
 
 interface BaseProps {
   label: string
-  name: string
+  name?: string
   error?: FieldError
   helperText?: string
   isImportant?: boolean
@@ -17,7 +17,8 @@ interface BaseProps {
   parentStyle?:string
 }
 
-interface InputProps extends BaseProps, React.InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends BaseProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, 'name'> {
+  name: string
   type?: "text" | "email" | 'number' | "password" | "date"
 }
 
@@ -165,7 +166,7 @@ export const FormRadioGroup = ({
 
 interface PhoneInputProps extends BaseProps {
   value: string
-  onChange: (value: string) => void
+  onChange: (value: string | undefined) => void
   placeholder?: string
 }
 
@@ -186,7 +187,7 @@ export const FormPhoneInput = ({
       international
       defaultCountry="NG"
       value={value}
-      onChange={onChange}
+      onChange={(val) => onChange(val || "")}
       placeholder={placeholder}
       className={cn(
         "w-full border rounded px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",

@@ -1,3 +1,5 @@
+import { SlideCardProps } from "@/lib/types";
+
 export const IdeaCardData: SlideCardProps[] = [
   {
     title: "Daily",
