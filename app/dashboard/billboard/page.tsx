@@ -1,10 +1,6 @@
 "use client";
 import TabContainer from "@/components/TabContainer";
-<<<<<<<< HEAD:app/[locale]/(dashboard)/billboard/page.tsx
-import SeedPage from "./subTabs/Seeds";
-========
 import SeedPage from "./subtabs/Seeds";
->>>>>>>> 5ac0a3352530d53b2dc02ade017b2a985d30b6bd:app/dashboard/billboard/page.tsx
 import { AssistantContainer } from "@/components/Container";
 
 export default function Billboard() {

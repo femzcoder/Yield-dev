@@ -12,11 +12,8 @@ import { ChevronDown } from 'lucide-react'
 import React, { useState } from 'react'
 import { ScheduleCard } from './ScheduleCard'
 
-<<<<<<<< HEAD:app/[locale]/(dashboard)/almanac/page.tsx
-const page = () => {
-========
+
 const Almanac = () => {
->>>>>>>> 5ac0a3352530d53b2dc02ade017b2a985d30b6bd:app/dashboard/almanac/page.tsx
     const [date, setDate] = useState<Date | undefined>(new Date())
   return (
     <div className='p-4 space-y-6'>

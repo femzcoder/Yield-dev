@@ -21,11 +21,7 @@ const Projects = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
                     <DropdownMenuGroup>
-<<<<<<<< HEAD:app/[locale]/(dashboard)/project/projects/page.tsx
-                        <DropdownMenuItem onClick={()=>{}}>
-========
                         <DropdownMenuItem  >
->>>>>>>> 5ac0a3352530d53b2dc02ade017b2a985d30b6bd:app/dashboard/project/projects/page.tsx
                             Audio
                         </DropdownMenuItem>
                         <Separator/>
@@ -47,12 +43,7 @@ const Projects = () => {
         <div>
             <div className='flex justify-between items-center'>
                 <TitleText text='Commercial Insurance'/>
-<<<<<<<< HEAD:app/[locale]/(dashboard)/project/projects/page.tsx
-                <PurpleButton styles={'gradient-text'} text={'Add Task'}/>
-========
                 <PurpleButton iconUrl={''} text={'Add Task'}/>
-                {/* <PurpleButton iconUrl={<Plus/>} text={'Add Task'}/> */}
->>>>>>>> 5ac0a3352530d53b2dc02ade017b2a985d30b6bd:app/dashboard/project/projects/page.tsx
             </div>
             <div>
 

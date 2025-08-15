@@ -1,15 +1,5 @@
 'use client'
 
-<<<<<<< HEAD:app/[locale]/page.tsx
-import { redirect, useParams } from 'next/navigation'
-
-const page = () => {
-    const params = useParams()
-    const currentLang = params?.locale as string;
-  return (
-    redirect(`/${currentLang}/login`)
-  )
-=======
 import { BasicCard } from "@/components/Cards";
 import { Grid2Container } from "@/components/Container";
 import CustomSlider from "@/components/CustomSlider";
@@ -27,10 +17,6 @@ export default function HomePage() {
     if (typeof window !== 'undefined') {
       OneSignal.init({
         appId: '918b727b-88b7-4c2d-894e-d198d84678b0',
-        // You can add other initialization options here
-        // notifyButton: {
-        //   enable: true,
-        // }
       });
     }
   }, []);
@@ -85,7 +71,28 @@ export default function HomePage() {
     </div>
 
   );
->>>>>>> 5ac0a3352530d53b2dc02ade017b2a985d30b6bd:app/dashboard/page.tsx
 }
 
-export default page
+
+const sideKicksData = [
+  {
+    name: "Christina",
+    image:"/icons/userIcon.png"
+  },
+  {
+    name: "Patrick",
+    image:"/icons/userIcon.png"
+  },
+  {
+    name: "Gabriel",
+    image:"/icons/userIcon.png"
+  },
+  {
+    name: "Joe",
+    image:"/icons/userIcon.png"
+  },
+  {
+    name: "Myra",
+    image:"/icons/userIcon.png"
+  }
+]

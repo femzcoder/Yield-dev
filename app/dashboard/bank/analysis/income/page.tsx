@@ -8,22 +8,11 @@ import { Message } from '@/lib/types'
 import { ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-<<<<<<<< HEAD:app/[locale]/(dashboard)/bank/analysis/income/page.tsx
-import { useParams } from 'next/navigation'
-========
-// import { useParams } from 'next/navigation'
->>>>>>>> 5ac0a3352530d53b2dc02ade017b2a985d30b6bd:app/dashboard/bank/analysis/income/page.tsx
 import React, { useState } from 'react'
 
 const AnalysisIncome = () => {
   const [open, setOpen] = useState(false);
-<<<<<<<< HEAD:app/[locale]/(dashboard)/bank/analysis/income/page.tsx
-    const params = useParams()
-    const currentLang = params?.locale as string;
-========
-    // const params = useParams()
-    // const currentLang = params?.locale as string;
->>>>>>>> 5ac0a3352530d53b2dc02ade017b2a985d30b6bd:app/dashboard/bank/analysis/income/page.tsx
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
@@ -39,11 +28,8 @@ const AnalysisIncome = () => {
             <li>Get equipped on business/commercial insurance</li>
             <li>Run worksite events</li>
         </ol>
-<<<<<<<< HEAD:app/[locale]/(dashboard)/bank/analysis/income/page.tsx
-        <Link href={`/${currentLang}/project`}>
-========
+
         <Link href={`/dashboard/project`}>
->>>>>>>> 5ac0a3352530d53b2dc02ade017b2a985d30b6bd:app/dashboard/bank/analysis/income/page.tsx
             <PurpleButton styles='w-full' text='Create Project'/>
         </Link>
             

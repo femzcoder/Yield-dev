@@ -3,7 +3,7 @@
 // import { auth0 } from '@/lib/auth0';
 import { redirect } from 'next/navigation'
 
-const MainPage = async () => {
+const MainPage = () => {
   // const session = await auth0.getSession();
   // if (!session) {
   //   return (

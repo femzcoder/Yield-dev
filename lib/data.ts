@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-import { SlideCardProps } from "@/lib/types";
-=======
+
 import { SlideCardProps } from "./types";
->>>>>>> 5ac0a3352530d53b2dc02ade017b2a985d30b6bd
 
 export const IdeaCardData: SlideCardProps[] = [
   {
