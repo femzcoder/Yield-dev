@@ -240,7 +240,7 @@ export default function ChatbotUI({
       {showChatButton && !open && (
         <button
           onClick={() => setOpen(true)}
-          className="flex items-center justify-center w-[50px] h-[50px] primary-button-background rounded-full shadow-lg transition fixed z-49 bottom-4 right-4"
+          className="hidden lg:flex items-center justify-center w-[50px] h-[50px] primary-button-background rounded-full shadow-lg transition fixed z-49 bottom-4 right-4"
         >
           <MessageSquare className="text-white" size={24} />
         </button>

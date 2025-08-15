@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { TitleText } from "./Typo";
 import { Textarea } from "./ui/textarea";
 import QuickAdd from "./quickAdd/QuickAdd";
+import MobileQuickAdd from "./quickAdd/MobileQuickAdd";
 
 type EmailModalProps = {
   open: boolean;
@@ -244,7 +245,8 @@ export const PrimaryTabContainerNoAssistant = ({ TabData }: PrimaryTabContainerP
 
   return (
       <div className="px-4">
-        <div className='mb-4 flex w-full justify-end'><QuickAdd/></div>
+        <MobileQuickAdd/>
+        <div className='mb-4 hidden lg:flex w-full justify-end'><QuickAdd/></div>
         <div className="w-full flex  md:grid grid-cols-2 md:grid-cols-4 gap-2 ">
           
           {TabData.map((tab, index) => (
