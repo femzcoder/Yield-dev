@@ -1,10 +1,10 @@
 'use client'
 
-import { ChatModalProps, PrimaryTabContainerProps, TabItem } from "@/lib/types";
+import { ChatModalProps, OwnPostProps, PrimaryTabContainerProps, TabItem } from "@/lib/types";
 import Image from "next/image";
 import { useChatbot } from "./chatbot/Chatbot";
 import { Label } from "@/components/ui/label"
-import { ArrowLeft, LucideSend, Plus, Send, SendIcon } from "lucide-react"
+import { ArrowLeft, BusFront, LucideSend, MessageSquare, Plus, Send, ThumbsUp } from "lucide-react"
 // import { ConverstaionPlannerModal } from "./ConversationPlanner"
 import React, { useState } from "react";
 import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@/components/ui/dialog";
@@ -12,6 +12,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { TitleText } from "./Typo";
 import { Textarea } from "./ui/textarea";
+import QuickAdd from "./quickAdd/QuickAdd";
+import MobileQuickAdd from "./quickAdd/MobileQuickAdd";
 
 type EmailModalProps = {
   open: boolean;
@@ -171,7 +173,7 @@ export const AssistantContainer = ({ children }: { children: React.ReactNode }) 
   const chatbot = useChatbot();
 
   return (
-    <div className="p-2 md:p-4 space-y-6">
+    <div className=" space-y-6">
       <div className="bg-white pl-2 flex items-center justify-between gap-4">
         <h3 className="font-semibold">Need Assistant?</h3>
         <div className="flex items-center gap-2 border-2 border-[#722F37] rounded-l-full px-2 py-1" onClick={() => {
@@ -180,11 +182,14 @@ export const AssistantContainer = ({ children }: { children: React.ReactNode }) 
           <Image src="/icons/userIcon.png" alt="Assistant Icon" width={24} height={24} />
           <div>
             <h3 className="font-semibold text-[#722F37]">Gabriel</h3>
-            <span className="text-[#595657]">Field Analyst</span>
+            <span className="text-[#595657] text-sm">Field Analyst</span>
           </div>
         </div>
       </div>
-      {children}
+      <div className="px-4">
+        {children}        
+      </div>
+
     </div>
   );
 }
@@ -209,25 +214,58 @@ export const PrimaryTabContainer = ({ TabData }: PrimaryTabContainerProps) => {
   const [activeTab, setActiveTab] = useState<TabItem>(TabData[0]);
 
   return (
-    <AssistantContainer>
-      <div className="w-full grid grid-cols-4 p-2 bg-[#F2F1F1]">
-        {TabData.map((tab, index) => (
-          <button
-            onClick={() => setActiveTab(tab)}
-            key={index}
-            className={`w-full p-2 text-center ${
-              activeTab.title === tab.title
-                ? 'primary-button-background text-white rounded-3xl'
-                : 'bg-transparent text-[#722F37]'
-            }`}
-          >
-            {tab.title}
-          </button>
-        ))}
-      </div>
+    <AssistantContainer >
+      <div className='hidden lg:flex mb-4 w-full justify-end'><QuickAdd/></div>
+      <>
+        <div className="w-full grid grid-cols-4 p-2 lg:bg-[#F2F1F1]">
+          {TabData.map((tab, index) => (
+            <button
+              onClick={() => setActiveTab(tab)}
+              key={index}
+              className={`w-full px-2 py-1 text-center ${
+                activeTab.title === tab.title
+                  ? 'primary-button-background text-white rounded-3xl'
+                  : 'bg-transparent text-[#722F37]'
+              }`}
+            >
+              {tab.title}
+            </button>
+          ))}
+        </div>
 
-      <div className="lg:p-4">{activeTab.content}</div>      
+        <div className="lg:p-4">{activeTab.content}</div>      
+      </>
+     
     </AssistantContainer>
+
+  );
+};
+export const PrimaryTabContainerNoAssistant = ({ TabData }: PrimaryTabContainerProps) => {
+  const [activeTab, setActiveTab] = useState<TabItem>(TabData[0]);
+
+  return (
+      <div className="px-4">
+        <MobileQuickAdd/>
+        <div className='mb-4 hidden lg:flex w-full justify-end'><QuickAdd/></div>
+        <div className="w-full flex  md:grid grid-cols-2 md:grid-cols-4 gap-2 ">
+          
+          {TabData.map((tab, index) => (
+            <button
+              onClick={() => setActiveTab(tab)}
+              key={index}
+              className={`w-full p-1 md:p-2 text-center text-sm md:text-[14px] border rounded-3xl ${
+                activeTab.title === tab.title
+                  ? 'primary-button-background text-white font-medium'
+                  : 'bg-transparent text-[#722F37]'
+              }`}
+            >
+              {tab.title}
+            </button>
+          ))}
+        </div>
+
+        <div className="">{activeTab.content}</div>      
+      </div>
 
   );
 };
@@ -257,5 +295,62 @@ export const SecondaryTabContainer = ({ TabData }: PrimaryTabContainerProps) => 
     </div>
   );
 };
+
+export const OwnPost = ({icon, title, name,time, description, tags, likeCount, commentCount, repostCount, engagementCount}: OwnPostProps) => {
+  return (
+    <div className="">
+
+      <div className="bg-[#F2F1F1] p-3 rounded-lg space-y-2">
+        <div className="flex items-center gap-3">
+          <Image src={icon} alt="Post Icon" width={24} height={24} />
+          <p className="font-semibold">{name}</p>
+          <Image src={"/icons/verified.svg"} alt="verified Icon" width={18} height={18} />
+          <p className="text-sm text-[#595657]">{time}</p>
+        </div>
+
+        <div>
+          <h4 className="font-semibold text-[#722F37]">{title}</h4>
+          <p className="text-sm text-[#595657]">{description}</p>
+        </div>
+
+        <div className="flex items-center gap-2 mt-2">
+          {tags && tags.map((tag, index) => (
+            <span key={index} className="text-xs text-[#007AFF] font-medium  px-2 py-1 rounded-full">#{tag}</span>
+          ))}
+        </div>        
+      </div>
+
+      <div className="flex items-center gap-10 bg-white w-full p-3">
+        <span className="text-xs flex items-center"><ThumbsUp size={16}/> {likeCount || 0} </span>
+        <span className="text-xs flex items-center"><MessageSquare size={16}/> {commentCount || 0} </span>
+        <span className="text-xs flex items-center"><Send size={16}/> {repostCount || 0} </span>
+        <span className="text-xs flex items-center"><BusFront size={16}/> {engagementCount || 0} </span>
+      </div>
+    </div>
+  );
+}
+export const ReaderPost = ({icon, name,time, description, likeCount}: OwnPostProps) => {
+  return (
+    <div style={{borderLeft:'4px solid rgba(199, 148, 56, 0.6)'}} className="rounded-[12px]">
+
+      <div className="p-3 rounded-lg space-y-2">
+        <div className="flex items-center gap-3">
+          <Image src={icon} alt="Post Icon" width={24} height={24} />
+          <p>{name}</p>
+          <p className="text-sm text-[#595657]">{time}</p>
+        </div>
+
+        <div>
+          <p className="text-sm text-[#595657]">{description}</p>
+        </div>
+     
+      </div>
+
+      <div className="flex items-center gap-10 bg-white w-full p-3">
+        <span className="text-xs flex items-center gap-2"><ThumbsUp size={16}/> {likeCount || 0} </span>
+      </div>
+    </div>
+  );
+}
 
 

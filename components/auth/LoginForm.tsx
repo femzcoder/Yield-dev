@@ -12,9 +12,8 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { FormInput } from "../common/FormInput"
-import { EyeIcon, EyeOffIcon } from "lucide-react"
 import Link from "next/link"
-import { useParams } from "next/navigation"
+import { redirect } from "next/navigation"
 import Image from "next/image"
 
 type LoginFormInputs = {
@@ -32,12 +31,9 @@ export function LoginForm({
     formState: { errors },
   } = useForm<LoginFormInputs>()
 
-  const params = useParams()
-  const currentLang = params?.locale as string;
+  // const params = useParams()
+  // const currentLang = params?.locale as string;
   const [loading, setLoading] = useState(false)
-  const [showPassword, setShowPassword] = useState(false)
-
-  const togglePasswordVisibility = () => setShowPassword((prev) => !prev)
 
   const validatePasswordStrength = (value: string) => {
     const strongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/
@@ -48,33 +44,9 @@ export function LoginForm({
 
   const onSubmit = async (data: LoginFormInputs) => {
     setLoading(true)
+    console.log(data)
 
-    try {
-      // Simulate API call
-      const res = await fetch("/api/login", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-
-      if (!res.ok) {
-        throw new Error("Login failed")
-      }
-
-      const result = await res.json()
-      console.log("Login successful:", result)
-
-      // Simulate redirect or token storage
-      // router.push("/dashboard")
-
-    } catch (err) {
-      console.error("Login error:", err)
-      alert("Login failed. Please check your credentials.")
-    } finally {
-      setLoading(false)
-    }
+    redirect(`/dashboard/${'community'}`)
   }
 
   return (
@@ -93,7 +65,7 @@ export function LoginForm({
 
           <CardTitle className="text-center font-bold text-[28px]">Log In</CardTitle>
           <CardDescription className="text-center">
-            Enter your email and password to login
+            Enter your email below to login to your account.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -133,18 +105,18 @@ export function LoginForm({
                   <div className="relative">
                     <FormInput
                       label="Password"
-                      type={showPassword ? "text" : "password"}
+                      type={'password'}
                       {...field}
                       error={errors.password}
                     />
-                    <button
+                    {/* <button
                       type="button"
                       onClick={togglePasswordVisibility}
                       className="absolute right-3 top-[38px] text-gray-500 hover:text-black"
                       tabIndex={-1}
                     >
                       {showPassword ? <EyeOffIcon size={18} /> : <EyeIcon size={18} />}
-                    </button>
+                    </button> */}
                   </div>
                 )}
               />
@@ -164,7 +136,7 @@ export function LoginForm({
               {/* Footer */}
               <div className="mt-4 text-center text-sm">
                 Don&apos;t have an account?{" "}
-                <Link href={`/${currentLang}/signup`} className="underline underline-offset-4 gradient-text font-semibold">
+                <Link href={`/signup`} className="underline underline-offset-4 gradient-text font-semibold">
                   Sign up
                 </Link>
               </div>

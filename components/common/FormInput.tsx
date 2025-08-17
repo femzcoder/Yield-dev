@@ -1,15 +1,20 @@
+'use client'
 // components/FormInput.tsx
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
 import { FieldError } from "react-hook-form"
-import PhoneInput from "react-phone-number-input/input"
+import PhoneInput, { Value } from "react-phone-number-input/input"
 import 'react-phone-number-input/style.css'
+import React, { useState } from "react"
+import { EyeIcon, EyeOffIcon } from "lucide-react"
+import { Textarea } from "../ui/textarea"
+import { BasicCard2 } from "../Cards"
 
 interface BaseProps {
   label: string
-  name?: string
+  name: string
   error?: FieldError
   helperText?: string
   isImportant?: boolean
@@ -17,8 +22,14 @@ interface BaseProps {
   parentStyle?:string
 }
 
-interface InputProps extends BaseProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, 'name'> {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string
   name: string
+  error?: FieldError
+  helperText?: string
+  isImportant?: boolean
+  className?: string,
+  parentStyle?:string
   type?: "text" | "email" | 'number' | "password" | "date"
 }
 
@@ -31,28 +42,52 @@ export const FormInput = ({
   isImportant = false,
   type = "text",
   ...props
-}: InputProps) => (
-  <div className="space-y-2">
-    <Label htmlFor={name}>{label}{isImportant && <span className="text-sm font-bold text-red-600">*</span>}</Label>
-    <Input
-      id={name}
-      name={name}
-      type={type}
-      className={cn(
-        "border border-[#F2F1F1] outline-0 rounded-[8px] outline-none focus-visible:ring-2 focus-visible:ring-ring bg-[#F2F1F1]",
-        error && "border-destructive",
-        className
+}: InputProps) => {
+  const [showPassword, setShowPassword] = useState(false)
+  const isPassword = type === "password"
+
+  return (
+    <div className="space-y-2 relative">
+      <Label htmlFor={name}>
+        {label}
+        {isImportant && <span className="text-sm font-bold text-red-600">*</span>}
+      </Label>
+      <Input
+        id={name}
+        name={name}
+        type={isPassword && !showPassword ? "password" : "text"}
+        className={cn(
+          "border border-[#F2F1F1] outline-0 rounded-[8px] outline-none focus-visible:ring-2 focus-visible:ring-ring bg-[#F2F1F1]",
+          error && "border-destructive",
+          className
+        )}
+        aria-invalid={!!error}
+        {...props}
+      />
+      {isPassword && (
+        <button
+          type="button"
+          className="absolute right-3 top-[30px] text-xs text-gray-600"
+          onClick={() => setShowPassword((prev) => !prev)}
+          tabIndex={-1}
+        >
+          {showPassword ? <EyeOffIcon/> : <EyeIcon/>}
+        </button>
       )}
-      aria-invalid={!!error}
-      {...props}
-    />
-    {error ? (
-      <p className="text-[12px] text-red-600">{error.message}</p>
-    ) : helperText ? (
-      <p className="text-[12px] text-muted-foreground">{helperText}</p>
-    ) : null}
-  </div>
-)
+      {error
+        ? (
+          <p className="text-[12px] text-red-600">
+            {typeof error === "string" ? error : error?.message}
+          </p>
+        )
+        : helperText
+          ? (
+            <p className="text-[12px] text-muted-foreground">{helperText}</p>
+          )
+          : null}
+    </div>
+  )
+}
 
 interface SelectInputProps extends BaseProps {
   options: { label: string; value: string }[]
@@ -91,6 +126,57 @@ export const FormSelect = ({
   </div>
 )
 
+
+interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+    label: string
+  name: string
+  error?: FieldError
+  helperText?: string
+  isImportant?: boolean
+  className?: string,
+  parentStyle?:string
+}
+
+export const FormTextArea = ({
+  label,
+  name,
+  error,
+  helperText,
+  isImportant = false,
+  className,
+  ...props
+}: TextAreaProps) => (
+  <div className="space-y-2">
+    <Label htmlFor={name}>
+      {label}
+      {isImportant && <span className="text-sm font-bold text-red-600">*</span>}
+    </Label>
+    <Textarea
+      id={name}
+      name={name}
+      className={cn(
+        "border border-[#F2F1F1] outline-0 rounded-[8px] outline-none focus-visible:ring-2 focus-visible:ring-ring bg-[#F2F1F1]",
+        error && "border-destructive",
+        className
+      )}
+      aria-invalid={!!error}
+      {...props}
+    />
+    {error
+      ? (
+        <p className="text-[12px] text-red-600">
+          {typeof error === "string" ? error : error?.message}
+        </p>
+      )
+      : helperText
+        ? (
+          <p className="text-[12px] text-muted-foreground">{helperText}</p>
+        )
+        : null}
+  </div>
+)
+
+
 interface CheckboxProps extends BaseProps {
   checked: boolean
   onChange: (checked: boolean) => void
@@ -128,6 +214,7 @@ export const FormCheckbox = ({
 interface RadioGroupProps extends BaseProps {
   options: { label: string; value: string }[]
   selected: string
+  invert?:boolean
   onChange: (value: string) => void
 }
 
@@ -138,21 +225,25 @@ export const FormRadioGroup = ({
   selected,
   onChange,
   error,
+  invert,
   helperText,
 }: RadioGroupProps) => (
   <div className="space-y-2">
     <Label>{label}</Label>
-    <div className="flex flex-col space-y-1">
+    <div className={`flex flex-col space-y-1`}>
       {options.map((opt) => (
         <label key={opt.value} className="flex items-center space-x-2">
-          <input
-            type="radio"
-            name={name}
-            value={opt.value}
-            checked={selected === opt.value}
-            onChange={() => onChange(opt.value)}
-          />
-          <span>{opt.label}</span>
+          <BasicCard2 style={`flex w-full justify-between items-center !rounded-[8px] !py-1 ${invert && 'flex-row-reverse'}`}>
+            <input
+              type="radio"
+              name={name}
+              value={opt.value}
+              checked={selected === opt.value}
+              onChange={() => onChange(opt.value)}
+            />
+            <span>{opt.label}</span>
+          </BasicCard2>
+
         </label>
       ))}
     </div>
@@ -164,10 +255,18 @@ export const FormRadioGroup = ({
   </div>
 )
 
-interface PhoneInputProps extends BaseProps {
-  value: string
-  onChange: (value: string | undefined) => void
-  placeholder?: string
+
+
+
+interface PhoneInputProps {
+  label: string;
+  name: string;
+  value: string;
+  // value: Value;
+  onChange: (value: Value) => void;
+  error?: { message: string };
+  helperText?: string;
+  placeholder?: string;
 }
 
 export const FormPhoneInput = ({
@@ -185,14 +284,19 @@ export const FormPhoneInput = ({
       id={name}
       name={name}
       international
+      countryCallingCodeEditable={true}
       defaultCountry="NG"
       value={value}
-      onChange={(val) => onChange(val || "")}
+      onChange={onChange}
       placeholder={placeholder}
       className={cn(
         "w-full border rounded px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         error && "border-destructive focus-visible:ring-destructive"
       )}
+      countrySelectProps={{
+        className:
+          "bg-transparent px-2 py-1 mr-2 border-r outline-none focus:ring-0",
+      }}
     />
     {error ? (
       <p className="text-sm text-destructive">{error.message}</p>
@@ -200,4 +304,4 @@ export const FormPhoneInput = ({
       <p className="text-sm text-muted-foreground">{helperText}</p>
     ) : null}
   </div>
-)
+);

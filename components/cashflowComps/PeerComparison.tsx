@@ -3,7 +3,6 @@ import { BasicCard, InsightWarningCard } from '../Cards'
 import { TitleText } from '../Typo'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Separator } from '@/components/ui/separator'
-import { ChevronDown } from 'lucide-react'
 import { FilterButton } from '../OtherButtons'
 import Image from 'next/image'
 
@@ -18,14 +17,14 @@ const PeerComparison = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
                     <DropdownMenuGroup>
-                        <DropdownMenuItem onClick={()=>{(true)}}>
+                        <DropdownMenuItem  >
                             Audio
                         </DropdownMenuItem>
                         <Separator/>
                         <DropdownMenuItem>
                             Camera
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={()=>{}}>
+                        <DropdownMenuItem  >
                             Upload
                         </DropdownMenuItem>
                         <Separator/>
@@ -54,14 +53,14 @@ const PeerComparison = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
                     <DropdownMenuGroup>
-                        <DropdownMenuItem onClick={()=>{(true)}}>
+                        <DropdownMenuItem  >
                             Audio
                         </DropdownMenuItem>
                         <Separator/>
                         <DropdownMenuItem>
                             Camera
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={()=>{}}>
+                        <DropdownMenuItem  >
                             Upload
                         </DropdownMenuItem>
                         <Separator/>

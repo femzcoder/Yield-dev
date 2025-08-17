@@ -2,13 +2,10 @@
 
 import React from 'react'
 import { IdeaCard } from './Cards'
-import { SlideCardProps } from "@/lib/types";
-
+import { SlideCardProps } from '@/lib/types'
 
 const CustomSlider = ({slidesData}: {slidesData: SlideCardProps[]}) => {
-    const handleClick = (index: number) => {
-        console.log(`Button clicked for slide ${index + 1}`);
-    }
+
   return (
     <div className='w-full'>
         <div className='flex w-full overflow-x-auto gap-4 py-4 '>

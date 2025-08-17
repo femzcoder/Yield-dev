@@ -14,7 +14,7 @@ import {
 import { FormInput } from "../common/FormInput"
 import { EyeIcon, EyeOffIcon } from "lucide-react"
 import Link from "next/link"
-import { useParams } from "next/navigation"
+// import { useParams } from "next/navigation"
 
 type SignupFormInputs = {
   email: string
@@ -32,8 +32,8 @@ export function SignUpForm({
     watch,
     formState: { errors },
   } = useForm<SignupFormInputs>()
-  const params = useParams()
-  const currentLang = params?.locale as string;
+  // const params = useParams()
+  // const currentLang = params?.locale as string;
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -178,7 +178,7 @@ export function SignUpForm({
 
             <div className="text-center text-sm">
               Already have an account?{" "}
-              <Link href={`/${currentLang}/login`} className="underline underline-offset-4 gradient-text font-semibold">
+              <Link href={`/`} className="underline underline-offset-4 gradient-text font-semibold">
                 Login
               </Link>
             </div>

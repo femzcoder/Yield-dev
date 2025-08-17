@@ -14,9 +14,7 @@ export default function BasicTransition({
   className
 }: BasicTransitionProps) {
   const [rendered, setRendered] = useState(show);
-  const [phase, setPhase] = useState<"enter" | "exit">(
-    show ? "enter" : "exit"
-  );
+  const [phase, setPhase] = useState<"enter" | "exit">(show ? "enter" : "exit");
   const nodeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,36 +27,43 @@ export default function BasicTransition({
   }, [show]);
 
   useLayoutEffect(() => {
-    if (phase === "enter" && nodeRef.current) {
-      nodeRef.current.style.opacity = "0";
-      nodeRef.current.offsetHeight;
-      nodeRef.current.style.transition = `opacity ${duration}ms ease-in-out`;
-      nodeRef.current.style.opacity = "1";
+    const node = nodeRef.current;
+    if (!node) return;
+
+    if (phase === "enter") {
+      node.style.opacity = "0";
+      // node.offsetHeight; 
+      node.style.transition = `opacity ${duration}ms ease-in-out`;
+      node.style.opacity = "1";
     }
 
-    if (phase === "exit" && nodeRef.current) {
-      nodeRef.current.style.transition = `opacity ${duration}ms ease-in-out`;
-      nodeRef.current.style.opacity = "0";
+    if (phase === "exit") {
+      node.style.transition = `opacity ${duration}ms ease-in-out`;
+      node.style.opacity = "0";
     }
   }, [phase, duration]);
 
   useEffect(() => {
-    if (phase === "exit" && nodeRef.current) {
+    const node = nodeRef.current;
+    if (phase === "exit" && node) {
       const handle = (e: TransitionEvent) => {
-        if (e.propertyName === "opacity") {
+        if (e.propertyName === "opacity" && e.target === node) {
           setRendered(false);
         }
       };
-      const el = nodeRef.current;
-      el.addEventListener("transitionend", handle);
-      return () => el.removeEventListener("transitionend", handle);
+      node.addEventListener("transitionend", handle);
+      return () => node.removeEventListener("transitionend", handle);
     }
   }, [phase]);
 
   if (!rendered) return null;
 
   return (
-    <div ref={nodeRef} style={{ opacity: 0 }} className={className}>
+    <div
+      ref={nodeRef}
+      style={{ opacity: phase === "enter" ? 1 : 0 }}
+      className={className}
+    >
       {children}
     </div>
   );

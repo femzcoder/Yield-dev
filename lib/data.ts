@@ -1,4 +1,5 @@
-import { SlideCardProps } from "@/lib/types";
+
+import { SlideCardProps } from "./types";
 
 export const IdeaCardData: SlideCardProps[] = [
   {

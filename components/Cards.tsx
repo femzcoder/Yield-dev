@@ -12,6 +12,13 @@ export const BasicCard = ({ children, style }: { children: React.ReactNode, styl
     </div>
   );
 }
+export const BasicCard2 = ({ children, style }: { children: React.ReactNode, style?: string }) => {
+  return (
+    <div className={`bg-white border border-[#F2F1F1] rounded-2xl p-3 md:p-6 ${style}`}>
+      {children}
+    </div>
+  );
+}
 
 export const InsightWarningCard = ({ title, flag, showCTA, isPurple, handleDismiss, handleProceed}: { title: string, icon: React.ReactNode, flag?: string, showCTA?:boolean, isPurple?:boolean, handleDismiss?:()=>void, handleProceed?:()=>void }) => {
   return (
@@ -63,9 +70,9 @@ export const EmptyState = () => {
   );
 }
 
-export const ProfileCategoryCard = ({ title, imageUrl, isActive, handleClick }: { title: string, imageUrl: string, isActive: boolean, handleClick: () => void }) => {
+export const ProfileCategoryCard = ({ title, imageUrl, isActive, status, handleClick }: { title: string, imageUrl: string, status:string, isActive: boolean, handleClick: () => void }) => {
   return (
-    <div className={`bg-white shadow-md rounded-[8px] px-4 relative py-3 flex items-center gap-4 ${isActive ? 'border-2 border-[#C58B18]' : ''}`} onClick={handleClick}>
+    <div className={`bg-white shadow-md rounded-[8px] px-4 relative py-3 flex items-center gap-4 ${isActive ? 'border-2 border-[#C58B18]' : ''} ${status === 'inactive' && 'opacity-60'}`} onClick={handleClick}>
       {
         isActive && <div className="absolute top-3 right-3 primary-button-background w-[7px] h-[7px] rounded-full"></div>
       }

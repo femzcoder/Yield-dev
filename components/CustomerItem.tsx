@@ -24,3 +24,5 @@ const CustomerItem = ({ind, customerName, amount}:{ind:number, customerName:stri
 }
 
 export default CustomerItem
+
+

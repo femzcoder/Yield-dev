@@ -1,22 +1,15 @@
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
-  DialogClose,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
   DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { ArrowLeft, LucideSend, LucideShare, Plus, Send, SendIcon, Share } from "lucide-react"
-import Image from "next/image"
+import { ArrowLeft, LucideShare } from "lucide-react"
 import { useState } from "react"
 import { BasicCard } from "../Cards"
 import { BlueText, TitleText } from "../Typo"
-import { gamePlanData } from "@/app/[locale]/(dashboard)/almanac/ScheduleCard"
+import { gamePlanData } from "@/app/dashboard/almanac/ScheduleCard"
 
 export function ConverstaionScriptModal() {
   const TabData = [

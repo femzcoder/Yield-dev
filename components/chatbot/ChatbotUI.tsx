@@ -3,14 +3,11 @@
 import "./ChatbotUI.css";
 import {
   MessageSquare,
-  X,
-  Send,
   Maximize2,
   Minimize2,
   ArrowLeft,
   EllipsisVertical,
   Search,
-  LucideSend,
   Mic,
   Plus,
 } from "lucide-react";
@@ -145,7 +142,7 @@ export default function ChatbotUI({
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
                   <DropdownMenuGroup>
-                    <DropdownMenuItem onClick={()=>{}}>
+                    <DropdownMenuItem  >
                       Message
                     </DropdownMenuItem>
                     <Separator/>
@@ -243,7 +240,7 @@ export default function ChatbotUI({
       {showChatButton && !open && (
         <button
           onClick={() => setOpen(true)}
-          className="flex items-center justify-center w-[50px] h-[50px] primary-button-background rounded-full shadow-lg transition fixed z-49 bottom-4 right-4"
+          className="hidden lg:flex items-center justify-center w-[50px] h-[50px] primary-button-background rounded-full shadow-lg transition fixed z-49 bottom-4 right-4"
         >
           <MessageSquare className="text-white" size={24} />
         </button>

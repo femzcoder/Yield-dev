@@ -7,7 +7,6 @@ import ReactSpeedometer from "react-d3-speedometer"
 import { FilterButton } from '../OtherButtons'
 import Image from 'next/image'
 import { Grid2Container } from '../Container'
-import { CustomerPieChart } from '../charts/PieChart'
 
 const DatabaseHealth = () => {
   return (
@@ -20,14 +19,14 @@ const DatabaseHealth = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="border border-[#DEE2E6] shadow w-[120px] bg-white rounded-2xl" align="start">
                     <DropdownMenuGroup>
-                        <DropdownMenuItem onClick={()=>{(true)}}>
+                        <DropdownMenuItem  >
                             Audio
                         </DropdownMenuItem>
                         <Separator/>
                         <DropdownMenuItem>
                             Camera
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={()=>{}}>
+                        <DropdownMenuItem  >
                             Upload
                         </DropdownMenuItem>
                         <Separator/>
