@@ -6,22 +6,27 @@ import React from 'react'
 import { BasicCard2 } from '@/components/Cards'
 import UserProfileDetails from '@/components/UserProfileDetails'
 import { useRouter } from 'next/navigation'
+import { useChatbot } from '@/components/chatbot/Chatbot'
+
+
+export const helpUrl ='/dashboard/helpandsupport/helpcomponent'
 
 const SettingsAndPrivacy = () => {
     const router = useRouter()
-    const settingUrl ='/dashboard/helpandsupport/helpcomponent'
+    const chatbot = useChatbot();
+    
 
 
     const settingsOptions=[
         {
             icon:"/icons/Iconssp1.svg",
             title:'Resources',
-            handleClick:()=>{router.push(`${settingUrl}/feedack`)}
+            handleClick:()=>{router.push(`${helpUrl}/resource`)}
         },
         {
             icon:"/icons/Iconssp2.svg",
             title:'Feedback',
-            handleClick:()=>{router.push(`${settingUrl}/resource`)}
+            handleClick:()=>{router.push(`${helpUrl}/feedback`)}
         },
 
     ]
@@ -59,7 +64,7 @@ const SettingsAndPrivacy = () => {
                 <BasicCard2>
                     <p className='text-[18px] mb-4'>Quick Help</p>
 
-                    <div className='flex items-center gap-4'>
+                    <div onClick={chatbot.toggle} className='flex items-center gap-4'>
                         <div>
                             <Image
                                 src={'/icons/Iconssp3.svg'}
@@ -79,7 +84,7 @@ const SettingsAndPrivacy = () => {
 
                 <BasicCard2 style='flex-col space-y-4'>
                     <p className='text-[18px]'>Contact Us</p>
-                    <div className='flex items-center gap-4'>
+                    <a href='mailto:concierge@yields.vip' className='flex items-center gap-4'>
                         <Image
                             src={'/icons/mesage.svg'}
                             alt="Email Icon"
@@ -92,8 +97,8 @@ const SettingsAndPrivacy = () => {
                                 <p className='text-[12px] text-[#10B981]'>We will get back to you as soon as we can</p>
                             </div>
                         
-                    </div>
-                    <div className='flex items-center gap-4'>
+                    </a>
+                    <a href='tel:+6588153894' className='flex items-center gap-4'>
                         <Image
                             src={'/icons/Whatsapp.svg'}
                             alt="Email Icon"
@@ -106,7 +111,7 @@ const SettingsAndPrivacy = () => {
                             <p className='text-[12px] text-[#3B82F6]'>Mon-Fri 9AM-6PM SGT</p>                        
                         </div>
                         
-                    </div>
+                    </a>
 
 
 

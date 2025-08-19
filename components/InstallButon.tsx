@@ -38,7 +38,7 @@ function InstallModal({
       <DialogContent className=" w-[330px] flex flex-col bg-white border-none rounded-2xl p-6">
         <div className="flex gap-2">
             <Image
-                src='/icons/Logo-dark.png'
+                src='/icons/Logo=Coloured.svg'
                 alt='logo'
                 width={70}
                 height={50}

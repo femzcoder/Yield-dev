@@ -4,7 +4,6 @@ import { FormSelect, FormTextArea } from "@/components/common/FormInput"
 import { FileUpload } from "@/components/FileUpload"
 import { TitleText } from "@/components/Typo"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
 import { useState } from "react"
 
 function Feedback() {
@@ -35,12 +34,12 @@ function Feedback() {
   return (
       <div className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
         {/* Header */}
-        <div className="bg-[#FAFAF9] shadow-xl py-2">
+        {/* <div className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
             <ArrowLeft onClick={() =>{}} className="cursor-pointer" />
             <h3 className="text-sm font-semibold">Feedback</h3>
           </div>
-        </div>
+        </div> */}
 
         <div className="p-6 space-y-4 overflow-y-auto">
 
@@ -98,8 +97,8 @@ function Feedback() {
 
 
             <div>
-                <div className='w-full'>
-                    <Button className="text-white w-full rounded-[8px]" type="submit">
+                <div className='w-full flex items-center justify-center'>
+                    <Button className="text-white  rounded-[8px]" type="submit">
                         Send Email
                     </Button>                    
                 </div>
