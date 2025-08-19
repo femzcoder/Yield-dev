@@ -4,7 +4,7 @@ import { FormInput, FormPhoneInput } from "@/components/common/FormInput"
 import { TitleText } from "@/components/Typo"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
+// import { ArrowLeft } from "lucide-react"
 import React, { useState } from "react"
 
 
@@ -49,12 +49,12 @@ function ParticularsModal() {
   return (
       <div className=" flex flex-col bg-white border-none rounded-2xl p-0">
         {/* Header */}
-        <div className="bg-[#FAFAF9] shadow-xl py-2">
+        {/* <div className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
             <ArrowLeft onClick={() =>{}} className="cursor-pointer" />
             <h3 className="text-sm font-semibold">Profile</h3>
           </div>
-        </div>
+        </div> */}
 
         <div className="p-6 space-y-4 overflow-y-auto">
           <TitleText

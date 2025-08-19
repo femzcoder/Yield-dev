@@ -62,14 +62,16 @@ const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
 
   return (
     <aside
-      className={`fixed top-0 left-0 h-full w-50 bg-white shadow-md 
+      onClick={toggleSidebar}
+      style={{ backgroundColor: "rgba(0,0,0,0.8)"}}
+      className={`fixed top-0 left-0 h-full w-full lg:w-50 lg:!bg-white shadow-md 
         transform transition-transform duration-300 z-50
         ${isOpen ? "translate-x-0" : "-translate-x-full"} 
         lg:translate-x-0 md:fixed`}
     >
-      <div className="p-4 font-bold text-lg flex items-center">
+      <div className="p-4 font-bold text-lg hidden lg:flex items-center">
         <Image
-          src="/icons/Logo-dark.png"
+          src="/icons/Logo=Coloured.svg"
           alt="Logo"
           width={100}
           height={100}
@@ -77,7 +79,15 @@ const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
         />
       </div>
 
-      <nav className="p-4 space-y-2 overflow-y-auto h-[calc(100vh-64px)] pb-8">
+      <nav className="lg:p-4 pb-8 
+      space-y-2 overflow-y-auto 
+      max-h-[80vh] lg:h-[calc(100vh-64px)]
+      mt-10 ml-4 lg:mt-0 lg:ml-0 
+      rounded-[16px] lg:rounded-0  
+      w-[80px] lg:w-full 
+      bg-white lg:bg-transparent 
+      border border-[#C79438] lg:border-0
+      ">
         {sidebarData.map((item, index) => {
           const fullPath = `/dashboard/${item.link}`;
           const isActive = pathname === fullPath;
@@ -90,7 +100,7 @@ const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
                 onOpenChange={() => toggleDropdown(item.title)}
               >
                 <CollapsibleTrigger
-                  className={`flex items-center justify-between w-full px-2 py-2 rounded-md text-sm cursor-pointer 
+                  className={`hidden lg:flex items-center justify-between w-full px-2 py-2 rounded-md text-sm cursor-pointer 
                     ${
                       isActive
                         ? "rounded-[2rem] primary-button-background text-white"
@@ -140,11 +150,11 @@ const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
               key={index}
               href={item.title === "Home" ? `/dashboard` : fullPath}
               onClick={toggleSidebar}
-              className={`flex items-center gap-2 px-2 py-2 rounded-md text-sm 
+              className={`flex flex-col lg:flex-row items-center gap-2 px-2 py-2 rounded-md text-sm 
                 ${
                   isActive
                     ? "rounded-[2rem] primary-button-background text-white"
-                    : "text-[#2D2D2D] hover:text-[#C79438]"
+                    : "text-[#C79438] lg:text-[#2D2D2D] hover:text-[#C79438]"
                 }`}
             >
               {item.icon}

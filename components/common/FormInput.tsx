@@ -57,7 +57,7 @@ export const FormInput = ({
         name={name}
         type={isPassword && !showPassword ? "password" : "text"}
         className={cn(
-          "border border-[#F2F1F1] outline-0 rounded-[8px] outline-none focus-visible:ring-2 focus-visible:ring-ring bg-[#F2F1F1]",
+          "border border-[#F2F1F1] outline-0 rounded-[8px] outline-none focus-visible:ring-2 focus-visible:ring-ring ",
           error && "border-destructive",
           className
         )}

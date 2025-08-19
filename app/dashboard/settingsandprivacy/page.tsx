@@ -6,10 +6,11 @@ import React from 'react'
 import UserProfileDetails from '@/components/UserProfileDetails'
 import { useRouter } from 'next/navigation'
 
+export const settingUrl ='/dashboard/settingsandprivacy/settingscomponent'
 const SettingsAndPrivacy = () => {
 
     const router = useRouter()
-    const settingUrl ='/dashboard/settingsandprivacy/settingscomponent'
+    
 
     const settingsOptions=[
         {

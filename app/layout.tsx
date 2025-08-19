@@ -1,18 +1,25 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import OneSignalProvider from "@/components/OneSignalProvider";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], 
+  variable: "--font-poppins",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata: Metadata = {
   title: "Yields",
@@ -45,11 +52,11 @@ export default async function RootLayout({
         <link rel="manifest" href="/manifest.json"/>
         <link rel="apple-touch-icon" sizes="192x192" href="/icons/Logo-192x192.png" />
         <link rel="apple-touch-icon" sizes="512x512" href="/icons/Logo-512x512.png" />
-        <link rel="apple-touch-startup-image" href="/icons/Logo-dark.png" />
+        <link rel="apple-touch-startup-image" href="/icons/Logo=Coloured.svg" />
         <meta name="theme-color" content="000000" />
 
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${poppins.variable}  antialiased`}>
         {/* <NextIntlClientProvider messages={messages} locale={locale}> */}
           <OneSignalProvider/>
           {children}

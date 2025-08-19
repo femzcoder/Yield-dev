@@ -3,7 +3,7 @@
 import React from "react";
 import { FormInput } from "@/components/common/FormInput"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
+// import { ArrowLeft } from "lucide-react"
 import { Formik, Form } from "formik"
 import { z } from "zod"
 import { toFormikValidationSchema } from "zod-formik-adapter"
@@ -21,12 +21,12 @@ function Password() {
   return (
       <div className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
         {/* Header */}
-        <div className="bg-[#FAFAF9] shadow-xl py-2">
+        {/* <div className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
             <ArrowLeft onClick={() => {}} className="cursor-pointer" />
             <h3 className="text-sm font-semibold">Password</h3>
           </div>
-        </div>
+        </div> */}
 
         <div className="p-6 space-y-4 overflow-y-auto">
 

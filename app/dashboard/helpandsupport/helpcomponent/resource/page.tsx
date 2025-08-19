@@ -1,29 +1,20 @@
 import { BasicCard2 } from "@/components/Cards"
 import { BlueText, TitleText } from "@/components/Typo"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Dialog, DialogContent,  DialogHeader } from "@/components/ui/dialog"
-import { ArrowLeft } from "lucide-react"
 import Image from "next/image"
 
-function ResorcesModal({
-  open,
-  onOpenChange,
-}: {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}) {
+function ResorcesModal() {
 
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
+      <div className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
         {/* Header */}
-        <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
+        {/* <DialogHeader className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
             <ArrowLeft onClick={() => onOpenChange(false)} className="cursor-pointer" />
             <h3 className="text-sm font-semibold">Resources</h3>
           </div>
-        </DialogHeader>
+        </DialogHeader> */}
 
         <div className="p-6 space-y-4 overflow-y-auto">
           <TitleText
@@ -83,8 +74,7 @@ function ResorcesModal({
             </Accordion>
 
         </div>
-      </DialogContent>
-    </Dialog>
+      </div>
   )
 }
 

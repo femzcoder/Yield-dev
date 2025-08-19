@@ -4,12 +4,11 @@
 import { FormInput } from "@/components/common/FormInput"
 import { TitleText } from "@/components/Typo"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
-import { useRouter } from "next/navigation"
+// import { ArrowLeft } from "lucide-react"
+// import { useRouter } from "next/navigation"
 import React, { useState } from "react"
 
-function ProfileModal() {
-  const router = useRouter()  
+function ProfileModal() { 
   const [profileData, setProfileData] = useState({
     id: "0000",
     f_name: "",
@@ -34,12 +33,12 @@ function ProfileModal() {
   return (
       <div className="w-full h-full  flex flex-col bg-white border-none md:rounded-2xl p-0">
         {/* Header */}
-        <div className="bg-[#FAFAF9] shadow-xl py-2">
+        {/* <div className="bg-[#FAFAF9] shadow-xl py-2">
           <div className="flex items-center gap-1 px-4">
             <ArrowLeft onClick={() => {router.back()}} className="cursor-pointer" />
             <h3 className="text-sm font-semibold">Profile</h3>
           </div>
-        </div>
+        </div> */}
 
         <div className="p-6 space-y-4 overflow-y-auto">
           <TitleText
