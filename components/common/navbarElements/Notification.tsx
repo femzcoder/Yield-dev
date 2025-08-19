@@ -11,7 +11,7 @@ export function NotificationPopover() {
   return (
     <Popover>
       <PopoverTrigger >
-        <NavbarButton iconUrl={"/icons/notificationIcon.png"} />
+        <NavbarButton iconUrl={"/icons/notificationbell.svg"} />
       </PopoverTrigger>
       <PopoverContent className="w-120 bg-white border-none shadow-lg rounded-2xl">
         <div className="grid gap-4">

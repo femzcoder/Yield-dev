@@ -134,9 +134,9 @@ export function LoginForm({
               </Button>
 
               {/* Footer */}
-              <div className="mt-4 text-center text-sm">
+              <div className=" lg:text-center text-sm">
                 Don&apos;t have an account?{" "}
-                <Link href={`/signup`} className="underline underline-offset-4 text-[#C79438] font-semibold">
+                <Link href={`/signup`} className="lg:underline underline-offset-4 text-[#C79438] font-semibold">
                   Sign up
                 </Link>
               </div>
