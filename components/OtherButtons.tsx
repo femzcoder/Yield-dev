@@ -5,8 +5,8 @@ import { ButtonProps } from "@/lib/types"
 
 export const NavbarButton = ({iconUrl, handleClick}:ButtonProps) =>{
     return(
-        <button onClick={handleClick} className="border border-[#E7E5E4] rounded-full p-2 flex justify-center items-center">
-            <Image src={iconUrl as string} alt="" width={16} height={16} />
+        <button onClick={handleClick} className="flex justify-center items-center">
+            <Image src={iconUrl as string} alt="" width={32} height={32} />
         </button>
     )
 }

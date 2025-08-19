@@ -64,11 +64,15 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
   ]
 
   return (
-    <div className="flex fixed w-full lg:w-[86%] 2xl:w-[90%] items-center justify-between bg-base-100 shadow-lg px-3 md:px-6 py-2 bg-[#fff] border-[#D6D3D1] border-b z-[45]">
+    <div className="flex h-[60px] fixed w-full lg:w-[86%] 2xl:w-[90%] items-center justify-between bg-base-100 shadow-lg px-3 md:px-6 py-1 bg-[#fff] border-[#D6D3D1] border-b z-[45]">
       {
         pageHeaderEnum.find((item) => item.route === pathname)?.title ? (
           <div className='flex items-center gap-2'>
-            <button onClick={() => router.back()}><ArrowLeft /></button>
+            <button onClick={() => router.back()}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M8.19167 5C6.43884 6.2963 4.86454 7.81065 3.50761 9.50473C3.39121 9.65006 3.33301 9.82503 3.33301 10M8.19167 15C6.43884 13.7037 4.86454 12.1893 3.50761 10.4953C3.39121 10.3499 3.33301 10.175 3.33301 10M3.33301 10H16.6663" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
             <span className="text-[14px] font-normal">
             {pageHeaderEnum.find((item) => item.route === pathname)?.title}
           </span>          
@@ -97,10 +101,12 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
 
         <div className="flex items-center gap-2">
             {/* <SubscribeButton/> */}
+            <NavbarButton type='button' handleClick={() => {}} iconUrl={"/icons/search-icon.svg"} />
             {/* <NavbarButton type='button' handleClick={() => console.log("Search clicked")} iconUrl={"/icons/searchIcon.png"} /> */}
-            <ActivityLog/>
             <NotificationPopover/>
-            <NavbarButton type='button' handleClick={() => chatbot.toggle()} iconUrl={"/icons/messageIcon.png"} />
+            <ActivityLog/>
+            
+            <NavbarButton type='button' handleClick={() => chatbot.toggle()} iconUrl={"/icons/message.svg"} />
         </div>
     </div>
   ) 

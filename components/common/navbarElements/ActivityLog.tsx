@@ -11,7 +11,7 @@ const ActivityLog = () => {
   return (
     <Popover>
       <PopoverTrigger >
-        <NavbarButton type='button'  iconUrl={"/icons/searchIcon.png"} />
+        <NavbarButton type='button'  iconUrl={"/icons/activity.svg"} />
       </PopoverTrigger>
       <PopoverContent className='border-none bg-[#E7E5E4] shadow-lg w-[500px]'>
             <div className=' w-[500px] bg-[#FAFAF9]'>
