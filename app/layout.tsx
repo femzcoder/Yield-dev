@@ -53,6 +53,7 @@ export default async function RootLayout({
         <link rel="apple-touch-icon" sizes="192x192" href="/icons/192x192.png" />
         <link rel="apple-touch-icon" sizes="512x512" href="/icons/512x512.png" />
         <link rel="apple-touch-startup-image" href="/icons/Logo=Coloured.svg" />
+        <link rel=''/>
         <meta name="theme-color" content="000000" />
 
       </head>
