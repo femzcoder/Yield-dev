@@ -21,19 +21,19 @@ const QuickAdd = () => {
                      
                     </DropdownMenuItem>
                     <Separator/>
-                    <DropdownMenuItem  >
+                    <DropdownMenuItem className='opacity-60' >
                       Audio
                     </DropdownMenuItem>
                     <Separator/>
-                    <DropdownMenuItem  >
+                    <DropdownMenuItem  className='opacity-60'>
                       Camera
                     </DropdownMenuItem>
                     <Separator/>
-                    <DropdownMenuItem  >
+                    <DropdownMenuItem  className='opacity-60'>
                       Upload
                     </DropdownMenuItem>
                     <Separator/>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className='opacity-60'>
                       Calendar
                     </DropdownMenuItem>
                   </DropdownMenuGroup>

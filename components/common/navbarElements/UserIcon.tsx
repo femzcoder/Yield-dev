@@ -1,7 +1,6 @@
 import React, { ReactNode, useState } from 'react'
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Separator } from '@/components/ui/separator'
 import { ChevronRight, LogOut, SettingsIcon } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -31,7 +30,7 @@ const UserIcon = () => {
             fullname:'Merchant'
         },
     ]
-    const [activeProfile, setActiveProfile] = useState(profileList[1].fullname);
+    const [activeProfile, setActiveProfile] = useState(profileList[0].fullname);
 
     const handleProfileClick = (fullname: string) => {
         setActiveProfile(fullname);
@@ -61,8 +60,8 @@ const UserIcon = () => {
                    
             </Button>
           </PopoverTrigger>
-          <PopoverContent className='border-none bg-[#E7E5E4] shadow-lg w-full lg:w-[500px] !p-1 md:p-3'>
-         <ul className="bg-[#FAFAF9] grid gap-2 w-full md:w-[400px]">
+          <PopoverContent className='border-none rounded-2xl bg-[#E7E5E4] shadow-lg w-full lg:w-[500px] lg:ml-56 mt-2 !p-1 md:p-3'>
+            <ul className="bg-[#FAFAF9] grid gap-2 w-full md:w-full rounded-2xl">
                 <div className='grid grid-cols-4'>
                     {
                         profileList.map((profile, index) => (
@@ -73,8 +72,8 @@ const UserIcon = () => {
                                     activeProfile === profile.fullname &&
                                 <div className='absolute top-2 right-3'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 10 9" fill="none">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M5 9C7.48526 9 9.5 6.98526 9.5 4.5C9.5 2.01472 7.48526 0 5 0C2.51472 0 0.5 2.01472 0.5 4.5C0.5 6.98526 2.51472 9 5 9ZM4.88402 6.31998L7.38398 3.31998L6.61598 2.68002L4.466 5.25948L3.35348 4.14648L2.6465 4.85352L4.1465 6.35352L4.5335 6.74052L4.88402 6.31998Z" fill="#C79438"/>
-</svg>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5 9C7.48526 9 9.5 6.98526 9.5 4.5C9.5 2.01472 7.48526 0 5 0C2.51472 0 0.5 2.01472 0.5 4.5C0.5 6.98526 2.51472 9 5 9ZM4.88402 6.31998L7.38398 3.31998L6.61598 2.68002L4.466 5.25948L3.35348 4.14648L2.6465 4.85352L4.1465 6.35352L4.5335 6.74052L4.88402 6.31998Z" fill="#C79438"/>
+                                    </svg>
                                 </div>
                                 }
 
@@ -90,7 +89,6 @@ const UserIcon = () => {
                         ))
                     }
                 </div>
-                <Separator/>
                 <div className='flex flex-col items-center w-full gap-2 p-2'>
                     <OtherTabs>
                        <Link href={`/dashboard/settingsandprivacy`} className='flex items-center gap-4'>

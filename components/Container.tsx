@@ -246,7 +246,7 @@ export const PrimaryTabContainerNoAssistant = ({ TabData }: PrimaryTabContainerP
   const [activeTab, setActiveTab] = useState<TabItem>(TabData[0]);
 
   return (
-      <div className="px-4">
+      <div className="px-4 pt-4">
         <MobileQuickAdd/>
         <div className='mb-4 hidden lg:flex w-full justify-end'><QuickAdd/></div>
         <div className="w-full flex  md:grid grid-cols-2 md:grid-cols-4 gap-2 ">

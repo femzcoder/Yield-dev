@@ -64,7 +64,7 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
   ]
 
   return (
-    <div className="flex h-[60px] fixed w-full lg:w-[86%] 2xl:w-[90%] items-center justify-between bg-base-100 shadow-lg px-3 md:px-6 py-1 bg-[#fff] border-[#D6D3D1] border-b z-[45]">
+    <div className="flex h-[60px] fixed w-full lg:w-[83%] xl:w-[86%] 2xl:w-[90%] items-center justify-between bg-base-100 shadow-lg px-3 md:px-6 py-1 bg-[#fff] border-[#D6D3D1] border-b z-[45]">
       {
         pageHeaderEnum.find((item) => item.route === pathname)?.title ? (
           <div className='flex items-center gap-2'>
