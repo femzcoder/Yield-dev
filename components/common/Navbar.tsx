@@ -11,7 +11,7 @@ import UserIcon from './navbarElements/UserIcon';
 import { usePathname, useRouter } from 'next/navigation';
 // import { settingUrl } from '@/app/dashboard/settingsandprivacy/page';
 
-import SubscribeButton from '../EnablePushButton';
+// import SubscribeButton from '../EnablePushButton';
 
 
 interface NavbarProps {
@@ -100,7 +100,7 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
 
 
         <div className="flex items-center gap-2">
-            <SubscribeButton/>
+            {/* <SubscribeButton/> */}
             <NavbarButton type='button' handleClick={() => {}} iconUrl={"/icons/search-icon.svg"} />
             <NavbarButton type='button' handleClick={() => {}} iconUrl={"/icons/notificationbell.svg"} />
             <NavbarButton type='button' handleClick={() => {}} iconUrl={"/icons/activity.svg"} />

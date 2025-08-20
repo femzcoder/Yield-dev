@@ -1,4 +1,5 @@
 "use client";
+import { is } from "date-fns/locale";
 import { useEffect, useState } from "react";
 
 export function usePWADetect() {
@@ -7,6 +8,7 @@ export function usePWADetect() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
 
   useEffect(() => {
+    console.log('troubleshoot pwa', isInstalled, isInstallable, deferredPrompt);
     // ✅ Check if already installed
     if (
       window.matchMedia("(display-mode: standalone)").matches ||
