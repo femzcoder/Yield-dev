@@ -93,7 +93,7 @@ const UserIcon = () => {
                     <OtherTabs>
                        <Link href={`/dashboard/settingsandprivacy`} className='flex items-center gap-4'>
                             <div className='rounded-full bg-[#EEEEEE] p-2'>
-                                <SettingsIcon color='#C79438' size={18} className="" />
+                                <SettingsIcon color='#C79438' size={24} className="" />
                             </div>
                             
                             <span className='font-medium text-[#2D2D2D]'>Settings & Privacy</span>
@@ -102,7 +102,7 @@ const UserIcon = () => {
                     <OtherTabs>
                         <Link href={`/dashboard/helpandsupport`} className='flex items-center gap-4'>
                             <div className='rounded-full bg-[#EEEEEE] p-2'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C79438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-circle-question-mark-icon lucide-circle-question-mark"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C79438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-circle-question-mark-icon lucide-circle-question-mark"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
                                 {/* <CircleQuestionMark color='#C79438' size={18} className="" /> */}
                             </div>
                             
@@ -112,7 +112,7 @@ const UserIcon = () => {
                     <OtherTabs>
                        <div className='flex items-center gap-4'>
                             <div className='rounded-full bg-[#EEEEEE] p-2'>
-                                <LogOut color='#C79438' size={16} className="mr-2 rounded-full " />
+                                <LogOut color='#C79438' size={24} className="mr-2 rounded-full " />
                             </div>
                             
                             <span className='font-medium text-[#2D2D2D]'>Logout</span>

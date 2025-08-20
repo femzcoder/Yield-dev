@@ -1,5 +1,4 @@
 "use client";
-import { is } from "date-fns/locale";
 import { useEffect, useState } from "react";
 
 export function usePWADetect() {
