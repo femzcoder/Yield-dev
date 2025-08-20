@@ -1,6 +1,7 @@
 
 import { SlideCardProps } from "./types";
 
+// export const supportUrl ='/dashboard/helpandsupport/helpcomponent'
 export const IdeaCardData: SlideCardProps[] = [
   {
     title: "Daily",

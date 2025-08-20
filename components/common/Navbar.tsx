@@ -3,14 +3,14 @@
 import React from 'react'
 import { NavbarButton } from '../OtherButtons'
 import Image from 'next/image';
-import { useChatbot } from '../chatbot/Chatbot';
+// import { useChatbot } from '../chatbot/Chatbot';
 import UserIcon from './navbarElements/UserIcon';
-import ActivityLog from './navbarElements/ActivityLog';
-import { NotificationPopover } from './navbarElements/Notification';
-import { ArrowLeft } from 'lucide-react';
+// import ActivityLog from './navbarElements/ActivityLog';
+// import { NotificationPopover } from './navbarElements/Notification';
+// import { ArrowLeft } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
-import { helpUrl } from '@/app/dashboard/helpandsupport/page';
-import { settingUrl } from '@/app/dashboard/settingsandprivacy/page';
+// import { settingUrl } from '@/app/dashboard/settingsandprivacy/page';
+
 // import SubscribeButton from '../EnablePushButton';
 
 
@@ -19,7 +19,7 @@ interface NavbarProps {
 }
 
 const Navbar = ({ toggleSidebar }: NavbarProps) => {
-  const chatbot = useChatbot();
+  // const chatbot = useChatbot();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -33,31 +33,31 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
       title: 'Help & Support'
     },
     {
-      route: `${helpUrl}/feedback`,
+      route: `/dashboard/helpandsupport/helpcomponent/feedback`,
       title: 'Feedback'
     },
     {
-      route: `${helpUrl}/resource`,
+      route: `/dashboard/helpandsupport/helpcomponent/resource`,
       title: 'Resource'
     },
     {
-      route: `${settingUrl}/profile`,
+      route: `/dashboard/settingsandprivacy/settingscomponent/profile`,
       title: 'Profile'
     },
     {
-      route: `${settingUrl}/particulars`,
+      route: `/dashboard/settingsandprivacy/settingscomponent/particulars`,
       title: 'Particulars'
     },
     {
-      route: `${settingUrl}/password`,
+      route: `/dashboard/settingsandprivacy/settingscomponent/password`,
       title: 'Password'
     },
     {
-      route: `${settingUrl}/subscription`,
+      route: `/dashboard/settingsandprivacy/settingscomponent/subscription`,
       title: 'Subscription'
     },
     {
-      route: `${settingUrl}/policy`,
+      route: `/dashboard/settingsandprivacy/settingscomponent/policy`,
       title: 'Policy'
     },
 
@@ -102,11 +102,12 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
         <div className="flex items-center gap-2">
             {/* <SubscribeButton/> */}
             <NavbarButton type='button' handleClick={() => {}} iconUrl={"/icons/search-icon.svg"} />
-            {/* <NavbarButton type='button' handleClick={() => console.log("Search clicked")} iconUrl={"/icons/searchIcon.png"} /> */}
-            <NotificationPopover/>
-            <ActivityLog/>
+            <NavbarButton type='button' handleClick={() => {}} iconUrl={"/icons/notificationbell.svg"} />
+            <NavbarButton type='button' handleClick={() => {}} iconUrl={"/icons/activity.svg"} />
+            {/* <NotificationPopover/> */}
+            {/* <ActivityLog/> */}
             
-            <NavbarButton type='button' handleClick={() => chatbot.toggle()} iconUrl={"/icons/message.svg"} />
+            <NavbarButton type='button' handleClick={() => {}} iconUrl={"/icons/message.svg"} />
         </div>
     </div>
   ) 

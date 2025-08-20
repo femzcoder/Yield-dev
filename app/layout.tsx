@@ -50,8 +50,8 @@ export default async function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Yield" />
         <link rel="manifest" href="/manifest.json"/>
-        <link rel="apple-touch-icon" sizes="192x192" href="/icons/Logo-192x192.png" />
-        <link rel="apple-touch-icon" sizes="512x512" href="/icons/Logo-512x512.png" />
+        <link rel="apple-touch-icon" sizes="192x192" href="/icons/192x192.png" />
+        <link rel="apple-touch-icon" sizes="512x512" href="/icons/512x512.png" />
         <link rel="apple-touch-startup-image" href="/icons/Logo=Coloured.svg" />
         <meta name="theme-color" content="000000" />
 

@@ -6,7 +6,7 @@ import React from 'react'
 import UserProfileDetails from '@/components/UserProfileDetails'
 import { useRouter } from 'next/navigation'
 
-export const settingUrl ='/dashboard/settingsandprivacy/settingscomponent'
+// export const settingUrl ='/dashboard/settingsandprivacy/settingscomponent'
 const SettingsAndPrivacy = () => {
 
     const router = useRouter()
@@ -16,27 +16,27 @@ const SettingsAndPrivacy = () => {
         {
             icon:"/icons/Iconssp1.svg",
             title:'Profile',
-            handleClick:()=>{router.push(`${settingUrl}/profile`)}
+            handleClick:()=>{router.push(`/dashboard/settingsandprivacy/settingscomponent/profile`)}
         },
         {
             icon:"/icons/Iconssp2.svg",
             title:'Particulars',
-            handleClick:()=>{router.push(`${settingUrl}/particulars`)}
+            handleClick:()=>{router.push(`/dashboard/settingsandprivacy/settingscomponent/particulars`)}
         },
         {
             icon:"/icons/Iconssp3.svg",
             title:'Subscriptions',
-            handleClick:()=>{router.push(`${settingUrl}/subscription`)}
+            handleClick:()=>{router.push(`/dashboard/settingsandprivacy/settingscomponent/subscription`)}
         },
         {
             icon:"/icons/Vectorsp4.svg",
             title:'Password',
-            handleClick:()=>{router.push(`${settingUrl}/password`)}
+            handleClick:()=>{router.push(`/dashboard/settingsandprivacy/settingscomponent/password`)}
         },
         {
             icon:"/icons/Iconssp5.svg",
             title:'Policies',
-            handleClick:()=>{router.push(`${settingUrl}/policy`)}
+            handleClick:()=>{router.push(`/dashboard/settingsandprivacy/settingscomponent/policy`)}
         }
     ]
 

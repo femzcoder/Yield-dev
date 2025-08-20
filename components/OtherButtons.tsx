@@ -5,7 +5,7 @@ import { ButtonProps } from "@/lib/types"
 
 export const NavbarButton = ({iconUrl, handleClick}:ButtonProps) =>{
     return(
-        <button onClick={handleClick} className="flex justify-center items-center">
+        <button onClick={handleClick} className="flex opacity-60 justify-center items-center">
             <Image src={iconUrl as string} alt="" width={32} height={32} />
         </button>
     )

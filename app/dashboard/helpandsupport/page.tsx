@@ -7,9 +7,10 @@ import { BasicCard2 } from '@/components/Cards'
 import UserProfileDetails from '@/components/UserProfileDetails'
 import { useRouter } from 'next/navigation'
 import { useChatbot } from '@/components/chatbot/Chatbot'
+// import { su } from '@/lib/data'
 
 
-export const helpUrl ='/dashboard/helpandsupport/helpcomponent'
+
 
 const SettingsAndPrivacy = () => {
     const router = useRouter()
@@ -21,12 +22,12 @@ const SettingsAndPrivacy = () => {
         {
             icon:"/icons/Iconssp1.svg",
             title:'Resources',
-            handleClick:()=>{router.push(`${helpUrl}/resource`)}
+            handleClick:()=>{router.push(`/dashboard/helpandsupport/helpcomponent/resource`)}
         },
         {
             icon:"/icons/Iconssp2.svg",
             title:'Feedback',
-            handleClick:()=>{router.push(`${helpUrl}/feedback`)}
+            handleClick:()=>{router.push(`/dashboard/helpandsupport/helpcomponent/feedback`)}
         },
 
     ]

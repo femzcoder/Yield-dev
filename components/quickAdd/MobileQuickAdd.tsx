@@ -5,10 +5,10 @@ import React, { useState } from 'react'
 const MobileQuickAdd = () => {
   const [open, setOpen] = useState(false)
   return (
-    <div style={{backgroundColor:`${open &&'rgba(0,0,0,0.5)'}`}} className={`lg:hidden fixed bottom-10 right-0 z-50  ${open && 'h-screen w-full'}`}>
+    <div style={{backgroundColor:`${open &&'rgba(0,0,0,0.5)'}`}} className={`lg:hidden fixed bottom-0 right-0 z-50  ${open && 'h-screen w-full'}`}>
 
       {open && 
-        <div className='absolute bottom-20 right-2 space-y-2'>
+        <div className='absolute bottom-[130px] right-3 space-y-2'>
             <button
               disabled={true}
               className="group flex items-center gap-2 justify-end w-full bg-transparent  transition"
@@ -21,7 +21,7 @@ const MobileQuickAdd = () => {
               
             </button>
             <button
-              className="flex items-center gap-2 justify-end w-full bg-transparent  transition"
+              className="flex items-center gap-2 justify-end w-full bg-transparent opacity-60  transition"
               onClick={() => console.log('Quick Add Clicked')}
             >
               <p className='bg-[#EEEEEE] group-hover:bg-white  rounded-2xl p-1 text-xs'>Audio</p>
@@ -30,7 +30,7 @@ const MobileQuickAdd = () => {
               </div>
             </button>
             <button
-              className="group flex items-center gap-2 justify-end w-full bg-transparent  transition"
+              className="group flex items-center gap-2 justify-end w-full bg-transparent opacity-60  transition"
               onClick={() => console.log('Quick Add Clicked')}
             >
               <p className='bg-[#EEEEEE] group-hover:bg-white  rounded-2xl p-1 text-xs'>Camera</p>
@@ -39,7 +39,7 @@ const MobileQuickAdd = () => {
               </div>
             </button>
             <button
-              className="group flex items-center gap-2 justify-end w-full bg-transparent  transition"
+              className="group flex items-center gap-2 justify-end w-full bg-transparent opacity-60  transition"
               onClick={() => console.log('Quick Add Clicked')}
             >
               <p className='bg-[#EEEEEE] group-hover:bg-white  rounded-2xl p-1 text-xs'>Upload</p>
@@ -48,7 +48,7 @@ const MobileQuickAdd = () => {
               </div>
             </button>
             <button
-              className="group flex items-center gap-2 justify-end w-full bg-transparent  transition"
+              className="group flex items-center gap-2 justify-end w-full bg-transparent opacity-60  transition"
               onClick={() => console.log('Quick Add Clicked')}
             >
               <p className='bg-[#EEEEEE] group-hover:bg-white  rounded-2xl p-1 text-xs'>Calendar</p>
@@ -63,7 +63,7 @@ const MobileQuickAdd = () => {
 
         <button
           onClick={() => setOpen(!open)}
-          className={`absolute bottom-6 right-2 flex items-center justify-center w-[50px] h-[50px] ${open?'bg-white':'primary-button-background'} rounded-full shadow-lg transition  z-49`}
+          className={`absolute bottom-18 right-2 flex items-center justify-center w-[50px] h-[50px] ${open?'bg-white':'primary-button-background'} rounded-full shadow-lg transition  z-49`}
         >
           {
             open ? <X className="text-black" size={20} /> : <Plus className="text-white" size={20} />

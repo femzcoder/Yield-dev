@@ -31,6 +31,11 @@ const DashboardLayoutProvider = ({ children }: { children: React.ReactNode }) =>
       <div className="flex">
         <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
         <div className="relative flex-1 transition-all duration-300 ml-0 lg:ml-48 overflow-x-hidden h-screen bg-[#f9fafb]">
+          {
+             sidebarOpen && (
+              <div onClick={toggleSidebar} className="absolute top-0 left-0 h-full w-full bg-black opacity-50 z-49"></div>
+             )
+          }
           <Navbar toggleSidebar={toggleSidebar} />
           <div className="py-6 overflow-y-auto overflow-x-hidden mt-[36px] h-[90vh] relative pb-6 ">
             {children}
