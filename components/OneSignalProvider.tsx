@@ -7,7 +7,9 @@ export default function OneSignalProvider() {
     async function initOneSignal() {
       await OneSignal.init({
         appId: '918b727b-88b7-4c2d-894e-d198d84678b0',
-        allowLocalhostAsSecureOrigin: true,
+        safari_web_id: 'web.onesignal.auto.918b727b-88b7-4c2d-894e-d198d84678b0',
+        requiresUserPrivacyConsent: true,
+        // allowLocalhostAsSecureOrigin: true,
         notifyButton: {
         enable: true,
         size: 'medium',
