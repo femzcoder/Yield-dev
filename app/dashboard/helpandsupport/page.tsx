@@ -85,7 +85,7 @@ const SettingsAndPrivacy = () => {
 
                 <BasicCard2 style='flex-col space-y-4'>
                     <p className='text-[18px]'>Contact Us</p>
-                    <a href='mailto:concierge@yields.vip' className='flex items-center gap-4'>
+                    <a href='mailto:helpdesk@yields.com' className='flex items-center gap-4'>
                         <Image
                             src={'/icons/mesage.svg'}
                             alt="Email Icon"
