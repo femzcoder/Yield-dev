@@ -32,9 +32,9 @@ function PolicyModal() {
                     <Image src="/icons/pdf-icon.svg" alt="Terms" width={20} height={30} />
                     <span className="text-sm">Terms of Service</span>
                 </div>
-                <div>
+                {/* <div>
                     <span className="flex items-center gap-2 text-sm">313KB <X size={14} /></span>
-                </div>
+                </div> */}
             </BasicCard2>
 
             <BasicCard2 handleClick={handleOpenPdf} style="flex justify-between items-center">
@@ -42,9 +42,9 @@ function PolicyModal() {
                     <Image src="/icons/pdf-icon.svg" alt="Terms" width={20} height={30} />
                     <span className="text-sm">Privacy Policy</span>
                 </div>
-                <div>
+                {/* <div>
                     <span className="flex items-center gap-2 text-sm">313KB <X size={14} /></span>
-                </div>
+                </div> */}
             </BasicCard2>
          </div>
         </div>

@@ -5,20 +5,10 @@ export async function middleware(request: NextRequest) {
   return await auth0.middleware(request);
 }
 
-// export const config = {
-//   matcher: [
-//     /*
-//      * Match all request paths except for the ones starting with:
-//      * - _next/static (static files)
-//      * - _next/image (image optimization files)
-//      * - favicon.ico, sitemap.xml, robots.txt (metadata files)
-//      */
-//     "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|manifest.json|icons|sw.js).*)",
-//   ],
-// };
-
 export const config = {
   matcher: [
-    "/dashboard/:path*",   // only protect dashboard
+    // Protect everything EXCEPT explicitly public files
+    "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|manifest.json|icons/|sw.js).*)",
   ],
 };
+
