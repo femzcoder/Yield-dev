@@ -6,6 +6,9 @@ import Image from "next/image"
 
 
 function PolicyModal() {
+    const handleOpenPdf = () => {
+      window.open("https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf", "_blank"); // opens in new tab
+    };
   return (
       <div className=" flex flex-col bg-white border-none md:rounded-2xl p-0 h-screen w-full">
         {/* Header */}
@@ -23,7 +26,8 @@ function PolicyModal() {
           </div>
 
          <div className="space-y-2">
-            <BasicCard2 style="flex justify-between items-center">
+          
+            <BasicCard2 handleClick={handleOpenPdf} style="flex justify-between items-center">
                 <div className="flex items-center gap-2">
                     <Image src="/icons/pdf-icon.svg" alt="Terms" width={20} height={30} />
                     <span className="text-sm">Terms of Service</span>
@@ -32,7 +36,8 @@ function PolicyModal() {
                     <span className="flex items-center gap-2 text-sm">313KB <X size={14} /></span>
                 </div>
             </BasicCard2>
-            <BasicCard2 style="flex justify-between items-center">
+
+            <BasicCard2 handleClick={handleOpenPdf} style="flex justify-between items-center">
                 <div className="flex items-center gap-2">
                     <Image src="/icons/pdf-icon.svg" alt="Terms" width={20} height={30} />
                     <span className="text-sm">Privacy Policy</span>

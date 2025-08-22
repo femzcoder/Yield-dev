@@ -12,9 +12,9 @@ export const BasicCard = ({ children, style }: { children: React.ReactNode, styl
     </div>
   );
 }
-export const BasicCard2 = ({ children, style }: { children: React.ReactNode, style?: string }) => {
+export const BasicCard2 = ({ children, style, handleClick }: { children: React.ReactNode, style?: string, handleClick?:()=>void }) => {
   return (
-    <div className={`bg-white border border-[#F2F1F1] rounded-2xl p-3 md:p-6 ${style}`}>
+    <div onClick={handleClick} className={`bg-white border border-[#F2F1F1] rounded-2xl p-3 md:p-6 ${style}`}>
       {children}
     </div>
   );
