@@ -1,6 +1,5 @@
 'use client'
 import React from "react";
-import { X } from "lucide-react"
 import { BasicCard2 } from "@/components/Cards"
 import Image from "next/image"
 
